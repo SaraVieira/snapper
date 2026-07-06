@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+CatSnap2D.exe
+CatSnap2D.pck
