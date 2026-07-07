@@ -435,9 +435,8 @@ states/Idle/position = Vector2(430, 177)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_it8tp")
 states/Walk/position = Vector2(432.5, 90)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gj4ai"]
-radius = 7.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxkun"]
+size = Vector2(6, 5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=667172494 node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("5_yuy7h")
@@ -459,5 +458,5 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919373364]
-position = Vector2(0, 5)
-shape = SubResource("CapsuleShape2D_gj4ai")
+position = Vector2(-1, 9.5)
+shape = SubResource("RectangleShape2D_dxkun")
