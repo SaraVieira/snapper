@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CatSnap2D"
-run/main_scene="uid://cm60yn0xst0pr"
+run/main_scene="uid://b6fv75e408oej"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
