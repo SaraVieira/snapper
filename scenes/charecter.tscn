@@ -444,6 +444,7 @@ animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2051570509]
 texture = ExtResource("4_gj4ai")
+offset = Vector2(0, -12)
 hframes = 8
 vframes = 4
 frame = 8
@@ -458,5 +459,5 @@ parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1919373364]
-position = Vector2(-1, 9.5)
+position = Vector2(-1, -2.5)
 shape = SubResource("RectangleShape2D_dxkun")
