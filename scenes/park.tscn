@@ -1,11 +1,16 @@
-[gd_scene format=4 uid="uid://bhpri5y16jb0m"]
+[gd_scene format=4 uid="uid://boxd0r8ln4x1o"]
 
-[ext_resource type="TileSet" uid="uid://b7jmq35s1hlkl" path="res://tile_set_exteriors.tres" id="1_n33tc"]
+[ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://scripts/park.gd" id="1_7mjl7"]
+[ext_resource type="TileSet" path="res://tile_set_exteriors.tres" id="1_n33tc"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://scenes/charecter.tscn" id="2_7mjl7"]
-[ext_resource type="Texture2D" uid="uid://b0o7islig6pu5" path="res://assets/cats/AllCatsPaid 3/BrownCat/Sittinggg.png" id="2_n33tc"]
+[ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="2_n33tc"]
+[ext_resource type="Texture2D" uid="uid://6hswmgcjks51" path="res://assets/512x512 textures (4).png" id="2_r2x14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b12lg"]
 size = Vector2(113, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu4lt"]
+size = Vector2(9, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mjl7"]
 atlas = ExtResource("2_n33tc")
@@ -19,6 +24,10 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("2_n33tc")
 region = Rect2(64, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6yfi"]
+atlas = ExtResource("2_n33tc")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_b12lg"]
 animations = [{
 "frames": [{
@@ -30,17 +39,39 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qbwbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6yfi")
 }],
 "loop": 1,
-"name": &"new_animation",
+"name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu4lt"]
-size = Vector2(9, 8)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thxxq"]
+size = Vector2(9, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b12lg"]
+cull_mode = 1
+polygon = PackedVector2Array(-5, -12, -5, -10, -6, -8, -4, -6, -3, -4, -4, -3, -2, -2, -2, -1, 0, -2, 1, -4, 1, -6, 3, -8, 2, -12, 1, -13, -4, -13)
 
 [node name="Park" type="Node2D" unique_id=2103047488]
 y_sort_enabled = true
+script = ExtResource("1_7mjl7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1329096921]
+position = Vector2(23.5, 18)
+color = Color(1, 1, 0.6117647, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1106784364]
+y_sort_enabled = true
+position = Vector2(188, -27.000023)
+scale = Vector2(8.75, 6.8632813)
+color = Color(0.96633404, 0.9690096, 0.98695797, 1)
+energy = 0.44
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.627451)
+texture = ExtResource("2_r2x14")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1801259184]
 texture_filter = 1
@@ -70,7 +101,7 @@ position = Vector2(-300.5, 49)
 shape = SubResource("RectangleShape2D_b12lg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350693477]
-position = Vector2(45, 19)
+position = Vector2(45, 18)
 limit_left = -334
 limit_top = -95
 limit_right = 175
@@ -78,30 +109,37 @@ limit_bottom = 290
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="Cat" type="StaticBody2D" parent="." unique_id=1183786399]
-y_sort_enabled = true
-position = Vector2(24, 9)
+[node name="cat" type="StaticBody2D" parent="." unique_id=1613106811]
+position = Vector2(23.5, 18)
+collision_layer = 3
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Cat" unique_id=1580931025]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cat" unique_id=1410297682]
+shape = SubResource("RectangleShape2D_cu4lt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="cat" unique_id=1580931025]
 y_sort_enabled = true
-position = Vector2(0, 13)
-scale = Vector2(0.5, 0.5)
+position = Vector2(0.5, 3)
 sprite_frames = SubResource("SpriteFrames_b12lg")
-animation = &"new_animation"
-autoplay = "new_animation"
-frame = 1
-frame_progress = 0.35187867
+autoplay = "default"
 offset = Vector2(0, -14)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat" unique_id=1410297682]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_cu4lt")
+[node name="Area2D" type="Area2D" parent="cat" unique_id=1013722991]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cat/Area2D" unique_id=1508453983]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_thxxq")
 
 [node name="CharacterBody2D" parent="." unique_id=667172494 instance=ExtResource("2_7mjl7")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(46, 24)
+position = Vector2(46, 23)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D" unique_id=1597134344]
 position = Vector2(-1, -5)
 remote_path = NodePath("../../Camera2D")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CharacterBody2D/RemoteTransform2D" unique_id=834297162]
+position = Vector2(1, 5)
+occluder = SubResource("OccluderPolygon2D_b12lg")
+
+[connection signal="body_entered" from="cat/Area2D" to="." method="_on_cat_close"]
