@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cropf4n42bnnp"]
+
+[ext_resource type="Texture2D" uid="uid://6hswmgcjks51" path="res://assets/512x512 textures (4).png" id="1_br286"]
+[ext_resource type="Script" uid="uid://cj20rhhcdt67m" path="res://scripts/enviroment.gd" id="1_u4fla"]
+[ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://assets/daynightcycle-gradient-texture.tres" id="2_g32t6"]
+
+[node name="Enviroment" type="Node2D" unique_id=631614254]
+script = ExtResource("1_u4fla")
+gradient = ExtResource("2_g32t6")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1791414718]
+position = Vector2(23.5, 18)
+color = Color(0.68431, 0.9643516, 0.7976407, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1297689783]
+position = Vector2(375.00003, -68)
+scale = Vector2(4.4627066, 3.9080932)
+color = Color(0.9326682, 0.93061566, 0.9350659, 1)
+energy = 0.44
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 0.627451)
+shadow_filter = 1
+shadow_filter_smooth = 7.6
+texture = ExtResource("1_br286")
+texture_scale = 0.53
