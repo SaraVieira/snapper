@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://boxd0r8ln4x1o"]
 
 [ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://scripts/park.gd" id="1_7mjl7"]
-[ext_resource type="TileSet" path="res://tile_set_exteriors.tres" id="1_n33tc"]
+[ext_resource type="TileSet" uid="uid://bhja5pps0jy2d" path="res://assets/tile_set_exteriors.tres" id="1_n33tc"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://scenes/charecter.tscn" id="2_7mjl7"]
 [ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="2_n33tc"]
 [ext_resource type="Texture2D" uid="uid://6hswmgcjks51" path="res://assets/512x512 textures (4).png" id="2_r2x14"]
@@ -11,6 +11,10 @@ size = Vector2(113, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu4lt"]
 size = Vector2(9, 12)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r2x14"]
+cull_mode = 1
+polygon = PackedVector2Array(-4.5, 4, -2.5, 4, -0.5, 3, 4.5, 3, 3.5, 1, 3.5, -2, 4.5, -3, 4.5, -4, 4.5, -6, 3.5, -6, 3.5, -5, 0.5, -5, 0.5, -6, -0.5, -6, -0.5, -1, -1.5, -1, -1.5, 2, -2.5, 2, -2.5, 3, -5.5, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mjl7"]
 atlas = ExtResource("2_n33tc")
@@ -64,14 +68,16 @@ position = Vector2(23.5, 18)
 color = Color(1, 1, 0.6117647, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1106784364]
-y_sort_enabled = true
-position = Vector2(188, -27.000023)
-scale = Vector2(8.75, 6.8632813)
-color = Color(0.96633404, 0.9690096, 0.98695797, 1)
+position = Vector2(217, -76.99999)
+scale = Vector2(4.4627066, 3.9080932)
+color = Color(0.9647059, 0.96862745, 0.36078432, 1)
 energy = 0.44
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.627451)
+shadow_filter = 1
+shadow_filter_smooth = 7.6
 texture = ExtResource("2_r2x14")
+texture_scale = 0.53
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1801259184]
 texture_filter = 1
@@ -115,6 +121,9 @@ collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cat" unique_id=1410297682]
 shape = SubResource("RectangleShape2D_cu4lt")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="cat" unique_id=1531554245]
+occluder = SubResource("OccluderPolygon2D_r2x14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="cat" unique_id=1580931025]
 y_sort_enabled = true
