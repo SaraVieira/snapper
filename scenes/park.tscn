@@ -4,7 +4,8 @@
 [ext_resource type="TileSet" uid="uid://bhja5pps0jy2d" path="res://assets/tile_set_exteriors.tres" id="1_n33tc"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://scenes/charecter.tscn" id="2_7mjl7"]
 [ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="2_n33tc"]
-[ext_resource type="Texture2D" uid="uid://6hswmgcjks51" path="res://assets/512x512 textures (4).png" id="2_r2x14"]
+[ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://scenes/enviroment.tscn" id="2_r2x14"]
+[ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://scenes/time_of_day_label.tscn" id="6_qbwbv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b12lg"]
 size = Vector2(113, 48)
@@ -63,21 +64,8 @@ polygon = PackedVector2Array(-5, -12, -5, -10, -6, -8, -4, -6, -3, -4, -4, -3, -
 y_sort_enabled = true
 script = ExtResource("1_7mjl7")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1329096921]
-position = Vector2(23.5, 18)
-color = Color(1, 1, 0.6117647, 1)
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1106784364]
-position = Vector2(217, -76.99999)
-scale = Vector2(4.4627066, 3.9080932)
-color = Color(0.9647059, 0.96862745, 0.36078432, 1)
-energy = 0.44
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.627451)
-shadow_filter = 1
-shadow_filter_smooth = 7.6
-texture = ExtResource("2_r2x14")
-texture_scale = 0.53
+[node name="Enviroment" parent="." unique_id=631614254 instance=ExtResource("2_r2x14")]
+position = Vector2(22.150455, 16.043673)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1801259184]
 texture_filter = 1
@@ -114,6 +102,20 @@ limit_right = 175
 limit_bottom = 290
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="UI" parent="Camera2D" unique_id=1826746424 instance=ExtResource("6_qbwbv")]
+auto_translate_mode = 2
+z_index = 99
+propagate_maximum_size = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -183.0
+offset_top = -86.0
+offset_right = -111.0
+offset_bottom = -55.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="cat" type="StaticBody2D" parent="." unique_id=1613106811]
 position = Vector2(23.5, 18)
