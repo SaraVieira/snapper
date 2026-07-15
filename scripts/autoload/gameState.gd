@@ -1,15 +1,15 @@
-@tool
 extends Node
 @onready var TIME : float
-@onready var TIME_IN_SIN: float
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var user_time = Time.get_time_dict_from_system()
+	TIME =  user_time.hour + user_time.minute / 60.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	TIME += delta
-	TIME_IN_SIN = (sin(TIME - PI/2) +1) /2
+	
+	

@@ -10,12 +10,11 @@ gradient = ExtResource("2_g32t6")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1791414718]
 position = Vector2(23.5, 18)
-color = Color(0.68431, 0.9643516, 0.7976407, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1297689783]
 position = Vector2(375.00003, -68)
 scale = Vector2(4.4627066, 3.9080932)
-color = Color(0.9326682, 0.93061566, 0.9350659, 1)
+color = Color(1, 0.92, 0.78, 1)
 energy = 0.44
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.627451)

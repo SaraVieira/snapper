@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 
@@ -9,11 +8,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var time_since_start = GameState.TIME
-	var hours = (GameState.TIME)
 	var minutes = (int((GameState.TIME - int(GameState.TIME)) * 60))
 
-	var in_game_hours = (int(hours) % 24) + 14
+	var in_game_hours = (int(GameState.TIME) % 24) 
 	var in_game_minutes = int((GameState.TIME - int(GameState.TIME)) * 60)
 	var in_game_hours_12 = ((in_game_hours + 11) % 12 + 1)
 	var am_pm = "AM" if in_game_hours < 12 else "PM"
