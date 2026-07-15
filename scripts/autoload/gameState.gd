@@ -1,5 +1,14 @@
 extends Node
-@onready var TIME : float
+
+signal hour_changed(hour: int)
+signal day_started
+signal night_started
+
+const DAY_START_HOUR := 6
+const NIGHT_START_HOUR := 18
+
+var TIME: float
+var _last_hour: int = -1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +20,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	TIME += delta
-	
-	
+	var current_hour = hour()
+	if current_hour != _last_hour:
+		_last_hour = current_hour
+		hour_changed.emit(current_hour)
+		if current_hour == DAY_START_HOUR:
+			day_started.emit()
+		elif current_hour == NIGHT_START_HOUR:
+			night_started.emit()
+
+
+func hour() -> int:
+	return int(TIME) % 24
+
+
+func is_night() -> bool:
+	return hour() < DAY_START_HOUR or hour() >= NIGHT_START_HOUR
