@@ -7,6 +7,8 @@ signal night_started
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
 
+@export var hours_per_second := 1.0
+
 var TIME: float
 var _last_hour: int = -1
 
@@ -19,7 +21,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	TIME += delta
+	TIME += delta * hours_per_second
 	var current_hour = hour()
 	if current_hour != _last_hour:
 		_last_hour = current_hour

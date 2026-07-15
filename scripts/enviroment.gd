@@ -19,3 +19,8 @@ func _process(delta: float) -> void:
 	var day_progress = clamp((t - 0.25) * 2.0, 0.0, 1.0)
 	sun.position.x = lerp(startSunPosition, endSunPosition, day_progress)
 	sun.energy = sunMaxEnergy * brightness
+
+	if GameState.is_night() :
+		$GPUParticles2D.emitting = true
+	else :
+		$GPUParticles2D.emitting = false

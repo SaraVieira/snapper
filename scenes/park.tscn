@@ -104,7 +104,6 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="UI" parent="Camera2D" unique_id=1826746424 instance=ExtResource("6_qbwbv")]
-auto_translate_mode = 2
 z_index = 99
 propagate_maximum_size = true
 anchors_preset = 0
