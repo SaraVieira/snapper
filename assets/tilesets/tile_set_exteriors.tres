@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" format=3 uid="uid://c7tkafxqpmtcq"]
+[gd_resource type="TileSet" format=3 uid="uid://bhja5pps0jy2d"]
 
 [ext_resource type="Texture2D" uid="uid://dxd43m1berj15" path="res://assets/modernexteriors-win/Godot_Autotiles_16x16.png" id="1_xvirk"]
 [ext_resource type="Texture2D" uid="uid://b51uohyvxv1h3" path="res://assets/tilesets/5_Floor_Modular_Buildings_16x16.png" id="2_p46ur"]
@@ -415,6 +415,9 @@ polygon = PackedVector2Array(-8, -8, 7, -8, 8, 0, 8, 3, 5, 6, 2, 7, -2, 8, -8, 8
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bsqvt"]
 polygon = PackedVector2Array(-1, 2, 2, -1, 4, -2, 7, -2, 8, -1, 8, 8, 0, 8, -1, 7, -1, 2)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sb3r3"]
+polygon = PackedVector2Array(-1, -8, 8, -8, 8, 6, 5, 6, 3, 4, -1, -5, -1, -8)
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vw7mw"]
 polygon = PackedVector2Array(-2, 2, 2, -5, 5, -8, 8, -8, 8, 8, -2, 8, -2, 2)
 
@@ -427,8 +430,11 @@ polygon = PackedVector2Array(-5, 2, -2, -3, 1, -6, 4, -8, 8, -8, 8, 8, -2, 8, -3
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_u6h7q"]
 polygon = PackedVector2Array(-4, -5, -2, -8, 8, -8, 8, 6, 6, 7, 5, 7, 2, 6, 1, 5, -2, 0, -4, -4, -4, -5)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p46ur"]
-polygon = PackedVector2Array(-6.903738, 4.2640734, -6.8022118, -0.81220436, -6.193058, -0.71067905, -6.0915337, -2.8427153, -4.873226, -2.74119, -4.9747524, -3.8579707, -4.162548, -3.8579707, -4.061022, -4.9747515, -3.0457668, -4.873226, -3.2488174, -6.700686, -1.3198318, -6.700686, -1.015255, -8, -8, -8, -8, 4.2640734)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t6frr"]
+polygon = PackedVector2Array(-8, -1, -7, -1, -2, 0, 1, 3, 1, 6, 0, 8, -8, 8, -8, -1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_veug6"]
+polygon = PackedVector2Array(-8, -8, -1, -8, -1, -7, -4, 5, -5, 6, -8, 6, -8, -8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ulnuc"]
 polygon = PackedVector2Array(-8, 6, -6, 4, -3, 3, -2, 3, 6, 5, 8, 6, 8, 8, -8, 8, -8, 6)
@@ -2108,6 +2114,7 @@ texture = ExtResource("8_mgove")
 22:60/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_bsqvt")
 23:60/0 = 0
 23:60/0/y_sort_origin = 16
+23:60/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_t6frr")
 24:60/0 = 0
 25:60/0 = 0
 28:60/0 = 0
@@ -2140,8 +2147,9 @@ texture = ExtResource("8_mgove")
 21:61/0/y_sort_origin = 32
 21:61/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_7p1k1")
 22:61/0 = 0
+22:61/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_sb3r3")
 23:61/0 = 0
-23:61/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_p46ur")
+23:61/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_veug6")
 24:61/0 = 0
 25:61/0 = 0
 26:61/0 = 0
