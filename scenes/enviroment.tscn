@@ -2,19 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj20rhhcdt67m" path="res://scripts/enviroment.gd" id="1_u4fla"]
 [ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://assets/daynightcycle-gradient-texture.tres" id="2_g32t6"]
-
-[sub_resource type="Gradient" id="Gradient_u4fla"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.26095238, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_sf6qd"]
-gradient = SubResource("Gradient_u4fla")
-width = 320
-height = 320
-fill = 1
-fill_from = Vector2(0.517094, 0.52991456)
-fill_to = Vector2(0.9188034, 0.08547009)
+[ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="3_g32t6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jigo"]
 blend_mode = 1
@@ -62,7 +50,7 @@ position = Vector2(381, -65)
 scale = Vector2(4.4627066, 3.9080932)
 color = Color(1, 0.92, 0.78, 1)
 energy = 0.3
-texture = SubResource("GradientTexture2D_sf6qd")
+texture = ExtResource("3_g32t6")
 texture_scale = 0.53
 
 [node name="Moon" type="PointLight2D" parent="." unique_id=181763933]
@@ -71,7 +59,7 @@ scale = Vector2(4.4627066, 3.9080932)
 enabled = false
 color = Color(0.5670177, 0.95076483, 0.99370176, 1)
 energy = 0.5
-texture = SubResource("GradientTexture2D_sf6qd")
+texture = ExtResource("3_g32t6")
 texture_scale = 0.88
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=382945250]
