@@ -1,11 +1,13 @@
 extends Node2D
 
 @onready var canvas = $CanvasModulate;
-@onready var sun = $PointLight2D
+@onready var sun = $Sun
+@onready var moon = $Moon
 @export var gradient: GradientTexture1D;
 var startSunPosition: float = 375.0
 var endSunPosition: float = -55.0
-var sunMaxEnergy: float = 0.65
+var sunMaxEnergy: float = 0.2
+var moonMaxEnergy: float = 0.5
 
 func _ready() -> void:
 	pass
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 	sun.position.x = lerp(startSunPosition, endSunPosition, day_progress)
 	sun.energy = sunMaxEnergy * brightness
 
-	if GameState.is_night() :
-		$GPUParticles2D.emitting = true
-	else :
-		$GPUParticles2D.emitting = false
+	moon.energy = moonMaxEnergy * (1.0 - brightness)
+
+	$GPUParticles2D.emitting = GameState.is_night()
+	moon.enabled = GameState.is_night()

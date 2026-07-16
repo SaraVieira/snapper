@@ -12,10 +12,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_u4fla")
 width = 320
 height = 320
-use_hdr = true
 fill = 1
 fill_from = Vector2(0.517094, 0.52991456)
-fill_to = Vector2(0.7948718, 0.22222222)
+fill_to = Vector2(0.9188034, 0.08547009)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jigo"]
 blend_mode = 1
@@ -58,17 +57,22 @@ gradient = ExtResource("2_g32t6")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1791414718]
 position = Vector2(23.5, 18)
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1297689783]
+[node name="Sun" type="PointLight2D" parent="." unique_id=1297689783]
 position = Vector2(381, -65)
 scale = Vector2(4.4627066, 3.9080932)
 color = Color(1, 0.92, 0.78, 1)
-energy = 0.44
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.627451)
-shadow_filter = 1
-shadow_filter_smooth = 0.5
+energy = 0.3
 texture = SubResource("GradientTexture2D_sf6qd")
 texture_scale = 0.53
+
+[node name="Moon" type="PointLight2D" parent="." unique_id=181763933]
+position = Vector2(114.00001, 83.99999)
+scale = Vector2(4.4627066, 3.9080932)
+enabled = false
+color = Color(0.5670177, 0.95076483, 0.99370176, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_sf6qd")
+texture_scale = 0.88
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=382945250]
 material = SubResource("CanvasItemMaterial_6jigo")
