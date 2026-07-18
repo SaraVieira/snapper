@@ -35,15 +35,31 @@ label_settings = SubResource("LabelSettings_ly7oj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1700901332]
+[node name="Stamina" type="TileMapLayer" parent="." unique_id=1700901332]
 position = Vector2(0, 7)
 tile_map_data = PackedByteArray("AAASAAAAAAARABgAAAATAAAAAAASABgAAAARAAAAAAARABgAAAAQAAAAAAARABgAAAAPAAAAAAAQABgAAAA=")
 tile_set = ExtResource("1_f0rp6")
 
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer2" unique_id=1630718677]
+[node name="Green" type="Sprite2D" parent="Stamina" unique_id=1630718677]
 position = Vector2(255, 8)
 scale = Vector2(2.778, 1)
 texture = ExtResource("3_acdt6")
 offset = Vector2(9, 0)
 region_enabled = true
 region_rect = Rect2(271, 405, 18, 6)
+
+[node name="Yellow" type="Sprite2D" parent="Stamina" unique_id=344134128]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_acdt6")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(319, 405, 18, 6)
+
+[node name="Red" type="Sprite2D" parent="Stamina" unique_id=1517657387]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_acdt6")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(319, 389, 18, 6)
