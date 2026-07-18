@@ -1,9 +1,12 @@
 extends Node
 
+signal player_stamina_changed(stamina: int)
+signal player_died()
 signal changed_scene()
 signal hour_changed(hour: int)
 signal day_started
 signal night_started
+
 
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
@@ -12,6 +15,7 @@ var LEVELS = {
 	"CITY": "res://scenes/city.tscn"
 }
 var currentLevel = LEVELS["CITY"]
+var player_stamina := 100
 
 @export var hours_per_second := 1.0
 
@@ -29,12 +33,19 @@ func _ready() -> void:
 	TIME =  user_time.hour + user_time.minute / 60.0
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
+	if(player_stamina <= 0):
+		player_died.emit()
+
 	TIME += delta * hours_per_second
 	var current_hour = hour()
 	if current_hour != _last_hour:
 		_last_hour = current_hour
+
+		player_stamina = clamp(player_stamina - 4, 0, 100)
+		player_stamina_changed.emit(player_stamina)
+
 		hour_changed.emit(current_hour)
 		if current_hour == DAY_START_HOUR:
 			day_started.emit()

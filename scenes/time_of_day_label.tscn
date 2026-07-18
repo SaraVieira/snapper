@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="1_f0rp6"]
 [ext_resource type="Script" uid="uid://cl562se0gqkcx" path="res://scripts/time_of_day_label.gd" id="1_mtk7m"]
+[ext_resource type="Texture2D" uid="uid://d3n3e57x64cf4" path="res://assets/modernuserinterface-win/16x16/Modern_UI_Style_1.png" id="3_acdt6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ly7oj"]
 font_size = 12
@@ -33,3 +34,16 @@ text = "12:12 AM"
 label_settings = SubResource("LabelSettings_ly7oj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1700901332]
+position = Vector2(0, 7)
+tile_map_data = PackedByteArray("AAASAAAAAAARABgAAAATAAAAAAASABgAAAARAAAAAAARABgAAAAQAAAAAAARABgAAAAPAAAAAAAQABgAAAA=")
+tile_set = ExtResource("1_f0rp6")
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer2" unique_id=1630718677]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_acdt6")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(271, 405, 18, 6)

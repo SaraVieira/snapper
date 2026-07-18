@@ -10,6 +10,10 @@ texture = ExtResource("1_okeme")
 5:9/0 = 0
 4:9/0 = 0
 3:9/0 = 0
+17:25/0 = 0
+16:24/0 = 0
+17:24/0 = 0
+18:24/0 = 0
 
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_fopse")
