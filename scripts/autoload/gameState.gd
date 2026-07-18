@@ -11,8 +11,8 @@ signal night_started
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
 var LEVELS = {
-	"PARK": "res://scenes/park.tscn",
-	"CITY": "res://scenes/city.tscn"
+	"PARK": preload("res://scenes/park.tscn"),
+	"CITY": preload("res://scenes/city.tscn")
 }
 var currentLevel = LEVELS["CITY"]
 var player_stamina := 100
@@ -26,6 +26,8 @@ func change_scene(scene: String) -> void:
 	if LEVELS.has(scene):
 		currentLevel = LEVELS[scene]
 		changed_scene.emit()
+	else:
+		push_warning("Unknown level: " + scene)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
