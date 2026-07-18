@@ -1,13 +1,27 @@
 [gd_scene format=3 uid="uid://cm60yn0xst0pr"]
 
-[ext_resource type="PackedScene" uid="uid://c7jdo1af8jkim" path="res://scenes/city.tscn" id="1_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://bhpri5y16jb0m" path="res://scenes/park.tscn" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://gn3cqlkdtdih" path="res://scripts/world.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://scenes/time_of_day_label.tscn" id="2_fj7yv"]
 
 [node name="World" type="Node2D" unique_id=2103047488]
 y_sort_enabled = true
+script = ExtResource("1_f3sb7")
 
-[node name="City" parent="." unique_id=959463887 instance=ExtResource("1_fj7yv")]
-position = Vector2(58, -98)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=740314281]
 
-[node name="Park" parent="." unique_id=209641746 instance=ExtResource("2_tlwt5")]
-position = Vector2(570, -97)
+[node name="UI" parent="CanvasLayer" unique_id=1826746424 instance=ExtResource("2_fj7yv")]
+z_index = 99
+propagate_maximum_size = true
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 8.0
+offset_bottom = 1.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="CurrentLevel" type="Node2D" parent="." unique_id=464841708]
+
+[node name="Node2D" type="Node2D" parent="CurrentLevel" unique_id=703077761]

@@ -1,17 +1,27 @@
 extends Node
 
+signal changed_scene()
 signal hour_changed(hour: int)
 signal day_started
 signal night_started
 
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
+var LEVELS = {
+	"PARK": "res://scenes/park.tscn",
+	"CITY": "res://scenes/city.tscn"
+}
+var currentLevel = LEVELS["CITY"]
 
 @export var hours_per_second := 1.0
 
 var TIME: float
 var _last_hour: int = -1
 
+func change_scene(scene: String) -> void:
+	if LEVELS.has(scene):
+		currentLevel = LEVELS[scene]
+		changed_scene.emit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

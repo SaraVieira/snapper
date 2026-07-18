@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://scenes/enviroment.tscn" id="2_r2x14"]
 [ext_resource type="Texture2D" uid="uid://dll2bdc6xufqb" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_16x16.png" id="4_v4b5n"]
 [ext_resource type="Texture2D" uid="uid://bwdwqvkkamxum" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_2_16x16.png" id="6_cowak"]
-[ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://scenes/time_of_day_label.tscn" id="6_qbwbv"]
 [ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="7_v6yfi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cowak"]
@@ -242,19 +241,6 @@ limit_right = 175
 limit_bottom = 290
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-
-[node name="UI" parent="Camera2D" unique_id=1826746424 instance=ExtResource("6_qbwbv")]
-z_index = 99
-propagate_maximum_size = true
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -183.0
-offset_top = -86.0
-offset_right = -111.0
-offset_bottom = -55.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="cat" type="StaticBody2D" parent="." unique_id=1613106811]
 position = Vector2(23.5, 18)
