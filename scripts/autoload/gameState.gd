@@ -11,8 +11,8 @@ signal night_started
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
 var LEVELS = {
-	"PARK": preload("res://scenes/park.tscn"),
-	"CITY": preload("res://scenes/city.tscn")
+	  "PARK": { "scene": preload("res://scenes/park.tscn"), "fade": Color("2e5e40") },
+	  "CITY": { "scene": preload("res://scenes/city.tscn"), "fade": Color("3d3d4e") },
 }
 var currentLevel = LEVELS["CITY"]
 var player_stamina := 100

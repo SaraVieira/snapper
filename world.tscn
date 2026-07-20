@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://gn3cqlkdtdih" path="res://scripts/world.gd" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://scenes/time_of_day_label.tscn" id="2_fj7yv"]
+[ext_resource type="Shader" uid="uid://lao8kkwu44n7" path="res://shaders/bayer_fade.gdshader" id="3_bayer"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fade"]
+shader = ExtResource("3_bayer")
+shader_parameter/progress = 0.0
+shader_parameter/fade_color = Color(0.18, 0.37, 0.25, 1)
+shader_parameter/design_resolution = Vector2(320, 180)
 
 [node name="World" type="Node2D" unique_id=2103047488]
 y_sort_enabled = true
@@ -25,3 +32,14 @@ grow_vertical = 1
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=464841708]
 
 [node name="Node2D" type="Node2D" parent="CurrentLevel" unique_id=703077761]
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=669017396]
+
+[node name="Fade" type="ColorRect" parent="FadeLayer" unique_id=168342628]
+material = SubResource("ShaderMaterial_fade")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
