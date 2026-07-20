@@ -16,6 +16,7 @@ var LEVELS = {
 }
 var currentLevel = LEVELS["CITY"]
 var player_stamina := 100
+var is_attacking := false
 
 @export var hours_per_second := 1.0
 

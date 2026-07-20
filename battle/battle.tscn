@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dvsgdsnca8d6s"]
+
+[ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="1_mqutd"]
+[ext_resource type="Script" uid="uid://dqwkfpful5an0" path="res://battle/battle.gd" id="1_qubjc"]
+[ext_resource type="Texture2D" uid="uid://jopawqrevtof" path="res://assets/battle/battle.png" id="2_tiqy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiqy5"]
+atlas = ExtResource("1_mqutd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qubjc"]
+atlas = ExtResource("1_mqutd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hnvb"]
+atlas = ExtResource("1_mqutd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mnim"]
+atlas = ExtResource("1_mqutd")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b12lg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tiqy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qubjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hnvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mnim")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Battle" type="Node2D" unique_id=1171704915]
+script = ExtResource("1_qubjc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789789811]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11292694, 0.1097113, 0.11661997, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=456170749]
+position = Vector2(155, 22)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_b12lg")
+autoplay = "default"
+frame_progress = 0.480505
+
+[node name="Battle" type="Sprite2D" parent="." unique_id=2107074738]
+position = Vector2(165, 136)
+texture = ExtResource("2_tiqy5")
+
+[node name="Position Marker" type="ColorRect" parent="." unique_id=1230694047]
+offset_left = 162.0
+offset_top = 117.0
+offset_right = 164.0
+offset_bottom = 155.0
+color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+
+[node name="Green R" type="Marker2D" parent="." unique_id=1082827747]
+position = Vector2(178, 134)
+
+[node name="Green L" type="Marker2D" parent="." unique_id=1235978182]
+position = Vector2(150, 134)
+
+[node name="Yellow R" type="Marker2D" parent="." unique_id=1557378577]
+position = Vector2(220, 135)
+
+[node name="Red R" type="Marker2D" parent="." unique_id=511326625]
+position = Vector2(248, 136)
+
+[node name="End R" type="Marker2D" parent="." unique_id=1866306164]
+position = Vector2(274, 136)
+
+[node name="Yellow L" type="Marker2D" parent="." unique_id=733111005]
+position = Vector2(109, 134)
+
+[node name="Red L" type="Marker2D" parent="." unique_id=2055486235]
+position = Vector2(82, 135)
+
+[node name="End L" type="Marker2D" parent="." unique_id=1598472566]
+position = Vector2(56, 136)
+
+[node name="HIT" type="Label" parent="." unique_id=438313395]
+visible = false
+offset_left = 89.0
+offset_top = 39.0
+offset_right = 129.0
+offset_bottom = 62.0
+text = "TEST"
