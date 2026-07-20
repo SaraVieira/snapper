@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cropf4n42bnnp"]
 
-[ext_resource type="Script" uid="uid://cj20rhhcdt67m" path="res://scripts/enviroment.gd" id="1_u4fla"]
+[ext_resource type="Script" uid="uid://cj20rhhcdt67m" path="res://environment/environment.gd" id="1_u4fla"]
 [ext_resource type="Texture2D" uid="uid://bkpc1kjm4t2xn" path="res://assets/daynightcycle-gradient-texture.tres" id="2_g32t6"]
 [ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="3_g32t6"]
 

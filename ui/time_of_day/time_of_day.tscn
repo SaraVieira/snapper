@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://cduujisff2y24"]
+
+[ext_resource type="Script" uid="uid://cl562se0gqkcx" path="res://ui/time_of_day/time_of_day.gd" id="1_nvmg2"]
+[ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="2_kribu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ly7oj"]
+font_size = 12
+font_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+
+[node name="time of day" type="Control" unique_id=1826746424]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nvmg2")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1727371367]
+tile_map_data = PackedByteArray("AAD//wAAAAADAAgAAAD//wEAAAADAAkAAAAAAAAAAAAEAAgAAAABAAAAAAAEAAgAAAACAAAAAAAEAAgAAAACAAEAAAAEAAkAAAAAAAEAAAAEAAkAAAABAAEAAAAEAAkAAAADAAAAAAAEAAgAAAADAAEAAAAEAAkAAAAEAAAAAAAFAAgAAAAEAAEAAAAFAAkAAAA=")
+tile_set = ExtResource("2_kribu")
+
+[node name="Label" type="Label" parent="." unique_id=507702683]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 65.0
+offset_bottom = 25.0
+text = "12:12 AM"
+label_settings = SubResource("LabelSettings_ly7oj")
+horizontal_alignment = 1
+vertical_alignment = 1

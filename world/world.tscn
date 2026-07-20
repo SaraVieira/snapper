@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cm60yn0xst0pr"]
 
-[ext_resource type="Script" uid="uid://gn3cqlkdtdih" path="res://scripts/world.gd" id="1_f3sb7"]
-[ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://scenes/time_of_day_label.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://gn3cqlkdtdih" path="res://world/world.gd" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://bkw6h46sgp1ak" path="res://ui/UI.tscn" id="2_4717r"]
 [ext_resource type="Shader" uid="uid://lao8kkwu44n7" path="res://shaders/bayer_fade.gdshader" id="3_bayer"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fade"]
@@ -16,18 +16,8 @@ script = ExtResource("1_f3sb7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=740314281]
 
-[node name="UI" parent="CanvasLayer" unique_id=1826746424 instance=ExtResource("2_fj7yv")]
-z_index = 99
-propagate_maximum_size = true
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 8.0
-offset_top = 1.0
-offset_right = 8.0
-offset_bottom = 1.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="Ui" parent="CanvasLayer" unique_id=157165032 instance=ExtResource("2_4717r")]
+position = Vector2(8, 1)
 
 [node name="CurrentLevel" type="Node2D" parent="." unique_id=464841708]
 

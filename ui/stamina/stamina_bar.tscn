@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cceb3k8gt1asy"]
+
+[ext_resource type="Script" uid="uid://hck6ndpitkmf" path="res://ui/stamina/stamina_bar.gd" id="1_fsom7"]
+[ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="2_ekf3b"]
+[ext_resource type="Texture2D" uid="uid://d3n3e57x64cf4" path="res://assets/modernuserinterface-win/16x16/Modern_UI_Style_1.png" id="3_kwu8c"]
+
+[node name="StaminaBar" type="Node2D" unique_id=1460779826]
+script = ExtResource("1_fsom7")
+
+[node name="Stamina" type="TileMapLayer" parent="." unique_id=2141166226]
+position = Vector2(0, 7)
+tile_map_data = PackedByteArray(0, 0, 18, 0, 0, 0, 0, 0, 17, 0, 24, 0, 0, 0, 19, 0, 0, 0, 0, 0, 18, 0, 24, 0, 0, 0, 17, 0, 0, 0, 0, 0, 17, 0, 24, 0, 0, 0, 16, 0, 0, 0, 0, 0, 17, 0, 24, 0, 0, 0, 15, 0, 0, 0, 0, 0, 16, 0, 24, 0, 0, 0)
+tile_set = ExtResource("2_ekf3b")
+
+[node name="Green" type="Sprite2D" parent="Stamina" unique_id=1160239810]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_kwu8c")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(271, 405, 18, 6)
+
+[node name="Yellow" type="Sprite2D" parent="Stamina" unique_id=27233113]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_kwu8c")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(319, 405, 18, 6)
+
+[node name="Red" type="Sprite2D" parent="Stamina" unique_id=1785487710]
+position = Vector2(255, 8)
+scale = Vector2(2.778, 1)
+texture = ExtResource("3_kwu8c")
+offset = Vector2(9, 0)
+region_enabled = true
+region_rect = Rect2(319, 389, 18, 6)

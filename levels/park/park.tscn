@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://boxd0r8ln4x1o"]
 
-[ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://scripts/park.gd" id="1_7mjl7"]
+[ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://levels/park/park.gd" id="1_7mjl7"]
 [ext_resource type="TileSet" uid="uid://c7tkafxqpmtcq" path="res://assets/tile_set_exteriors.tres" id="1_n33tc"]
-[ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://scenes/charecter.tscn" id="2_7mjl7"]
+[ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://player/character.tscn" id="2_7mjl7"]
 [ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="2_n33tc"]
-[ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://scenes/enviroment.tscn" id="2_r2x14"]
+[ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://environment/environment.tscn" id="2_r2x14"]
 [ext_resource type="Texture2D" uid="uid://dll2bdc6xufqb" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_16x16.png" id="4_v4b5n"]
 [ext_resource type="Texture2D" uid="uid://bwdwqvkkamxum" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_2_16x16.png" id="6_cowak"]
 [ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="7_v6yfi"]

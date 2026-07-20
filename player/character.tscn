@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhum3lcfskf45"]
 
 [ext_resource type="Texture2D" uid="uid://dusl4j8s6b34j" path="res://assets/char.png" id="4_gj4ai"]
-[ext_resource type="Script" uid="uid://cdirjkdvieft3" path="res://player.gd" id="5_yuy7h"]
+[ext_resource type="Script" uid="uid://cdirjkdvieft3" path="res://player/player.gd" id="5_yuy7h"]
 
 [sub_resource type="Animation" id="Animation_gj4ai"]
 length = 0.001

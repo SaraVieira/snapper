@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bkw6h46sgp1ak"]
+
+[ext_resource type="PackedScene" uid="uid://cceb3k8gt1asy" path="res://ui/stamina/stamina_bar.tscn" id="1_xmm75"]
+[ext_resource type="PackedScene" uid="uid://cduujisff2y24" path="res://ui/time_of_day/time_of_day.tscn" id="2_qesnl"]
+
+[node name="Ui" type="Node2D" unique_id=157165032]
+
+[node name="StaminaBar" parent="." unique_id=1460779826 instance=ExtResource("1_xmm75")]
+
+[node name="time of day" parent="." unique_id=1826746424 instance=ExtResource("2_qesnl")]
