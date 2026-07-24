@@ -2,7 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="1_mqutd"]
 [ext_resource type="Script" uid="uid://dqwkfpful5an0" path="res://battle/battle.gd" id="1_qubjc"]
-[ext_resource type="Texture2D" uid="uid://jopawqrevtof" path="res://assets/battle/battle.png" id="2_tiqy5"]
+[ext_resource type="PackedScene" uid="uid://bgf4av3gn64mg" path="res://battle/batlle_pet.tscn" id="3_qubjc"]
+[ext_resource type="PackedScene" uid="uid://bjnx54jn8jy51" path="res://battle/battle_choose.tscn" id="4_6hnvb"]
+[ext_resource type="Texture2D" uid="uid://cuwhofgolx5xp" path="res://assets/battle/sound-1-out.png" id="5_4mnim"]
+[ext_resource type="Texture2D" uid="uid://bwiansfc3n3m" path="res://assets/battle/sound-1-in.png" id="6_rxlun"]
+[ext_resource type="Shader" uid="uid://catpqbxywfmwc" path="res://battle/battle.tres" id="7_vlrs1"]
+[ext_resource type="Texture2D" uid="uid://vqstgqhgo8mo" path="res://assets/battle/sound-3-out.png" id="8_hvjow"]
+[ext_resource type="Texture2D" uid="uid://c7ptelcu5smro" path="res://assets/battle/sound-2-out.png" id="9_qybyd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tiqy5"]
 atlas = ExtResource("1_mqutd")
@@ -40,15 +46,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Battle" type="Node2D" unique_id=1171704915]
-script = ExtResource("1_qubjc")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b12lg"]
+shader = ExtResource("7_vlrs1")
+shader_parameter/Texture2DParameter = ExtResource("5_4mnim")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1789789811]
+[node name="Battle" type="Control" unique_id=1418957341]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 320.0
-offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qubjc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789789811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.11292694, 0.1097113, 0.11661997, 1)
@@ -58,47 +73,76 @@ position = Vector2(155, 22)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_b12lg")
 autoplay = "default"
-frame_progress = 0.480505
+frame_progress = 0.9330849
 
-[node name="Battle" type="Sprite2D" parent="." unique_id=2107074738]
-position = Vector2(165, 136)
-texture = ExtResource("2_tiqy5")
-
-[node name="Position Marker" type="ColorRect" parent="." unique_id=1230694047]
-offset_left = 162.0
-offset_top = 117.0
-offset_right = 164.0
-offset_bottom = 155.0
-color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
-
-[node name="Green R" type="Marker2D" parent="." unique_id=1082827747]
-position = Vector2(178, 134)
-
-[node name="Green L" type="Marker2D" parent="." unique_id=1235978182]
-position = Vector2(150, 134)
-
-[node name="Yellow R" type="Marker2D" parent="." unique_id=1557378577]
-position = Vector2(220, 135)
-
-[node name="Red R" type="Marker2D" parent="." unique_id=511326625]
-position = Vector2(248, 136)
-
-[node name="End R" type="Marker2D" parent="." unique_id=1866306164]
-position = Vector2(274, 136)
-
-[node name="Yellow L" type="Marker2D" parent="." unique_id=733111005]
-position = Vector2(109, 134)
-
-[node name="Red L" type="Marker2D" parent="." unique_id=2055486235]
-position = Vector2(82, 135)
-
-[node name="End L" type="Marker2D" parent="." unique_id=1598472566]
-position = Vector2(56, 136)
-
-[node name="HIT" type="Label" parent="." unique_id=438313395]
+[node name="Pet" parent="." unique_id=155137189 instance=ExtResource("3_qubjc")]
 visible = false
-offset_left = 89.0
-offset_top = 39.0
-offset_right = 129.0
-offset_bottom = 62.0
-text = "TEST"
+position = Vector2(0, 8)
+
+[node name="BattleChoose" parent="." unique_id=1746145930 instance=ExtResource("4_6hnvb")]
+visible = false
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1911984464]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 127.0
+offset_right = 122.0
+offset_bottom = 159.0
+texture = ExtResource("5_4mnim")
+stretch_mode = 2
+
+[node name="RedArea" type="Control" parent="TextureRect" unique_id=1208566891]
+visible = false
+clip_children = 1
+clip_contents = true
+anchors_preset = 0
+offset_right = 21.0
+offset_bottom = 32.0
+
+[node name="RedInside" type="TextureRect" parent="TextureRect/RedArea" unique_id=463600264]
+clip_contents = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 21.0
+offset_bottom = 31.0
+texture = ExtResource("6_rxlun")
+stretch_mode = 2
+
+[node name="RedInside" type="TextureRect" parent="TextureRect" unique_id=1930929276]
+clip_contents = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 21.0
+offset_bottom = 31.0
+texture = ExtResource("6_rxlun")
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect" unique_id=337785229]
+material = SubResource("ShaderMaterial_b12lg")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1526471416]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 105.0
+offset_right = 205.0
+offset_bottom = 168.0
+texture = ExtResource("8_hvjow")
+stretch_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="." unique_id=1192622209]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 116.0
+offset_right = 160.0
+offset_bottom = 166.0
+texture = ExtResource("9_qybyd")
+stretch_mode = 2
+
+[connection signal="attack_result" from="Pet" to="." method="_on_pet_attack_result"]
+[connection signal="option_selected" from="BattleChoose" to="." method="_on_battle_choose_option_selected"]

@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://lr2j504sowe3"]
+
+[ext_resource type="FontFile" uid="uid://beitb4yna41fo" path="res://assets/fonts/BetterPixels.ttf" id="1_t84j6"]
+
+[resource]
+font = ExtResource("1_t84j6")
+font_size = 20
+font_color = Color(0.11372549, 0.10980392, 0.11764706, 1)
+shadow_color = Color(0.6591482, 0.37187055, 0.27395758, 0.62600005)
+shadow_offset = Vector2(0.5, 0.5)

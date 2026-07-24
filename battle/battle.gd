@@ -1,76 +1,45 @@
-extends Node2D
-
-@onready var position_marker: ColorRect = $"Position Marker"
-
-# RIGHT
-@onready var green_r: Marker2D = $"Green R"
-@onready var yellow_r: Marker2D = $"Yellow R"
-@onready var red_r: Marker2D = $"Red R"
-@onready var end_r: Marker2D = $"End R"
+extends Control
 
 
-# LEFT
-@onready var green_l: Marker2D = $"Green L"
-@onready var yellow_l: Marker2D = $"Yellow L"
-@onready var red_l: Marker2D = $"Red L"
-@onready var end_l: Marker2D = $"End L"
-@onready var hit: Label = $"HIT"
-
-var direction = 1
-
-var likelyness_to_hit: float = 0
-var hit_success: bool = false
+@onready var hand_ui: Node2D = $Pet;
+@onready var treats_ui: Node2D = $Pet;
+@onready var sound_ui: Node2D = $Pet;
+@onready var sit_ui: Node2D = $Pet;
+@onready var photo_ui: Node2D = $Pet;
 
 
-# Called when the node enters the scene tree for the first time.
+var ACTIONS := ["pet", "hand", "treats", "sound", "sit", "photo"]
+@onready var STATES = {
+	"choose": { "active": true, "cooldown": 0.0, "ui": $BattleChoose },
+	"pet": { "active": false, "cooldown": 0.0, "ui": $Pet },
+	"hand": { "active": false, "cooldown": 0.0, "ui": hand_ui },
+	"treats": { "active": false, "cooldown": 0.0, "ui": treats_ui },
+	"sound": { "active": false, "cooldown": 0.0, "ui": sound_ui },
+	"sit": { "active": false, "cooldown": 0.0, "ui": sit_ui },
+	"photo": { "active": false, "cooldown": 0.0, "ui": photo_ui },
+}
+
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var marker_pos = position_marker.global_position.x
-	var end_r_pos = end_r.global_position
-	var end_l_pos = end_l.global_position
-
-	if marker_pos >= end_r_pos.x:
-		direction = -1
-	elif marker_pos <= end_l_pos.x:
-		direction = 1
-
-	position_marker.global_position.x += direction * 100 * delta
+	STATES["choose"].ui.visible = true;
 
 
 
-	# on click space, stop the position marker and check if it is in the green zone
-	if Input.is_action_just_pressed("attack"):
-		GameState.is_attacking = true
 
-		# direction = 0
-		if marker_pos >= green_l.global_position.x and marker_pos <= green_r.global_position.x:
-			likelyness_to_hit = 0.8
-		elif marker_pos >= yellow_l.global_position.x and marker_pos <= yellow_r.global_position.x:
-			likelyness_to_hit = 0.4
-		elif marker_pos >= red_l.global_position.x and marker_pos <= red_r.global_position.x:
-			likelyness_to_hit = 0.2
-		else:
-			likelyness_to_hit = 0.0
+func _on_battle_choose_option_selected(option_action: String) -> void:
+	STATES[option_action]["active"] = true
+	STATES[option_action]["ui"].visible = true
+	STATES["choose"].ui.visible = false;
+	STATES["choose"]["active"] = false;
 
 
-		await on_attack_result()
-		GameState.is_attacking = false
+func _on_pet_attack_result(hit_success: bool) -> void:
 
+	var current_action = ""
+	for action in STATES.keys():
+		if STATES[action]["active"]:
+			current_action = action
+			break
 
-
-func on_attack_result() -> void:
-	hit_success = randf() < likelyness_to_hit
-
-	hit.visible = true
-	if hit_success:
-		hit.text = "Hit!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
-	else:
-		hit.text = "Miss!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
+	STATES[current_action]["active"] = false
+	STATES[current_action]["ui"].visible = false
+	STATES["choose"].ui.visible = true;

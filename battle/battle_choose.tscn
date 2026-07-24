@@ -1,0 +1,154 @@
+[gd_scene format=4 uid="uid://bjnx54jn8jy51"]
+
+[ext_resource type="Script" uid="uid://c12iggyrgpcfu" path="res://battle/battle_choose.gd" id="1_robjp"]
+[ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="1_wfs5p"]
+[ext_resource type="Texture2D" uid="uid://d3n3e57x64cf4" path="res://assets/modernuserinterface-win/16x16/Modern_UI_Style_1.png" id="2_robjp"]
+[ext_resource type="LabelSettings" uid="uid://lr2j504sowe3" path="res://battle/label_text.tres" id="3_60y7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b12lg"]
+atlas = ExtResource("2_robjp")
+region = Rect2(229, 324, 7, 8)
+
+[node name="Control" type="Control" unique_id=1746145930]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_robjp")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1525350801]
+tile_map_data = PackedByteArray("AAAFAAcAAAABAAAAAAAGAAcAAAABAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAcAAAABAAAAAAAMAAcAAAABAAAAAAANAAcAAAABAAAAAAAOAAcAAAABAAAAAAAOAAgAAAABAAEAAAAOAAkAAAABAAEAAAAOAAoAAAABAAIAAAANAAoAAAABAAIAAAAMAAoAAAABAAIAAAALAAoAAAABAAIAAAAKAAoAAAABAAIAAAAJAAoAAAABAAIAAAAIAAoAAAABAAIAAAAHAAoAAAABAAIAAAAGAAoAAAABAAIAAAAFAAoAAAABAAIAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAGAAgAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAALAAgAAAABAAEAAAAMAAgAAAABAAEAAAANAAgAAAABAAEAAAANAAkAAAABAAEAAAAMAAkAAAABAAEAAAALAAkAAAABAAEAAAAKAAkAAAABAAEAAAAJAAkAAAABAAEAAAAIAAkAAAABAAEAAAAHAAkAAAABAAEAAAAGAAkAAAABAAEAAAAEAAcAAAABAAAAAAADAAcAAAABAAAAAAAPAAcAAAABAAAAAAAQAAcAAAABAAAAAAAQAAgAAAABAAEAAAAQAAkAAAABAAEAAAAPAAgAAAABAAEAAAAPAAkAAAABAAEAAAAEAAkAAAABAAEAAAADAAkAAAABAAEAAAADAAgAAAABAAEAAAAEAAgAAAABAAEAAAACAAgAAAAAAAEAAAACAAkAAAAAAAEAAAACAAoAAAAAAAIAAAADAAoAAAABAAIAAAAEAAoAAAABAAIAAAAPAAoAAAABAAIAAAAQAAoAAAABAAIAAAACAAcAAAAAAAAAAAARAAoAAAACAAIAAAARAAcAAAACAAAAAAARAAgAAAACAAEAAAARAAkAAAACAAEAAAA=")
+tile_set = ExtResource("1_wfs5p")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=739251512]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -34.0
+offset_right = 117.5
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 23
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="PetContainer" type="HBoxContainer" parent="GridContainer" unique_id=42819705]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/PetContainer" unique_id=1223218587]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/PetContainer/active_container" unique_id=1238558402]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="Pet" type="Label" parent="GridContainer/PetContainer" unique_id=2066514559]
+layout_mode = 2
+text = "Pet"
+label_settings = ExtResource("3_60y7h")
+
+[node name="HandContainer" type="HBoxContainer" parent="GridContainer" unique_id=606399479]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/HandContainer" unique_id=40195060]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/HandContainer/active_container" unique_id=2051316204]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="hands" type="Label" parent="GridContainer/HandContainer" unique_id=15080108]
+layout_mode = 2
+text = "Hands"
+label_settings = ExtResource("3_60y7h")
+
+[node name="TreatsContainer" type="HBoxContainer" parent="GridContainer" unique_id=2065298777]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/TreatsContainer" unique_id=1588750955]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/TreatsContainer/active_container" unique_id=1357178597]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="treats" type="Label" parent="GridContainer/TreatsContainer" unique_id=1056503820]
+layout_mode = 2
+text = "Treats"
+label_settings = ExtResource("3_60y7h")
+
+[node name="SoundContainer" type="HBoxContainer" parent="GridContainer" unique_id=1986623341]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/SoundContainer" unique_id=708757140]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/SoundContainer/active_container" unique_id=1988136993]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="ps" type="Label" parent="GridContainer/SoundContainer" unique_id=1348842389]
+layout_mode = 2
+text = "Pss Pss"
+label_settings = ExtResource("3_60y7h")
+
+[node name="SitContainer" type="HBoxContainer" parent="GridContainer" unique_id=1479433064]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/SitContainer" unique_id=1021227036]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/SitContainer/active_container" unique_id=488616812]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="sit" type="Label" parent="GridContainer/SitContainer" unique_id=1984426189]
+layout_mode = 2
+text = "Sit"
+label_settings = ExtResource("3_60y7h")
+
+[node name="PhotoContainer" type="HBoxContainer" parent="GridContainer" unique_id=1895303127]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="active_container" type="CenterContainer" parent="GridContainer/PhotoContainer" unique_id=563603010]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="active" type="TextureRect" parent="GridContainer/PhotoContainer/active_container" unique_id=262800600]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_b12lg")
+stretch_mode = 3
+
+[node name="Photo" type="Label" parent="GridContainer/PhotoContainer" unique_id=1715770480]
+layout_mode = 2
+text = "Photo"
+label_settings = ExtResource("3_60y7h")
