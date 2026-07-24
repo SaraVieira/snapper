@@ -61,14 +61,12 @@ func _process(delta: float) -> void:
 
 		await on_attack_result()
 		GameState.is_attacking = false
+		hit_success = randf() < likelyness_to_hit
 		emit_signal("attack_result", hit_success)
 
 
 
 func on_attack_result() -> void:
-	hit_success = randf() < likelyness_to_hit
-	
-
 	hit.visible = true
 	if hit_success:
 		hit.text = "Hit!"
