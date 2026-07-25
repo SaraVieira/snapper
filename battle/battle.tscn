@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="1_mqutd"]
 [ext_resource type="Script" uid="uid://dqwkfpful5an0" path="res://battle/battle.gd" id="1_qubjc"]
-[ext_resource type="PackedScene" uid="uid://bgf4av3gn64mg" path="res://battle/batlle_pet.tscn" id="3_qubjc"]
-[ext_resource type="PackedScene" uid="uid://bjnx54jn8jy51" path="res://battle/battle_choose.tscn" id="4_6hnvb"]
-[ext_resource type="PackedScene" uid="uid://bkldeid6jc6c2" path="res://battle/sound_ui.tscn" id="5_4mnim"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tiqy5"]
 atlas = ExtResource("1_mqutd")
@@ -66,21 +63,3 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_b12lg")
 autoplay = "default"
 frame_progress = 0.9330849
-
-[node name="Pet" parent="." unique_id=155137189 instance=ExtResource("3_qubjc")]
-visible = false
-position = Vector2(0, 8)
-
-[node name="BattleChoose" parent="." unique_id=1746145930 instance=ExtResource("4_6hnvb")]
-visible = false
-layout_mode = 1
-
-[node name="SoundUI" parent="." unique_id=727046014 instance=ExtResource("5_4mnim")]
-visible = false
-layout_mode = 0
-offset_top = 101.0
-offset_bottom = 101.0
-
-[connection signal="attack_result" from="Pet" to="." method="_on_pet_attack_result"]
-[connection signal="option_selected" from="BattleChoose" to="." method="_on_battle_choose_option_selected"]
-[connection signal="attack_result" from="SoundUI" to="." method="_on_sound_ui_attack_result"]

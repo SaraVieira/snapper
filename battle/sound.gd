@@ -1,5 +1,4 @@
 extends Control
-signal attack_result(hit_success: bool)
 
 @onready var red: ColorRect = $red
 @onready var yellow: ColorRect = $yellow
@@ -64,4 +63,4 @@ func attack() -> void:
 		await (get_tree().create_timer(1.0)).timeout
 		hit.visible = false
 	await (get_tree().create_timer(1.0)).timeout
-	emit_signal("attack_result", hit_success)
+	BattleSignals.emit_signal("on_sound_result", hit_success)

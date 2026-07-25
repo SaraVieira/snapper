@@ -9,47 +9,47 @@ extends Control
 
 var ACTIONS := ["pet", "hand", "treats", "sound", "sit", "photo"]
 @onready var STATES = {
-	"choose": { "active": true, "cooldown": 0.0, "ui": $BattleChoose },
-	"pet": { "active": false, "cooldown": 0.0, "ui": $Pet },
-	"hand": { "active": false, "cooldown": 0.0, "ui": hand_ui },
-	"treats": { "active": false, "cooldown": 0.0, "ui": treats_ui },
-	"sound": { "active": false, "cooldown": 0.0, "ui": $SoundUI },
-	"sit": { "active": false, "cooldown": 0.0, "ui": sit_ui },
-	"photo": { "active": false, "cooldown": 0.0, "ui": photo_ui },
+	"choose": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/battle_choose.tscn") },
+	"pet": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/batlle_pet.tscn") },
+	"hand": { "instance": null, "cooldown": 0.0, "ui": hand_ui },
+	"treats": { "instance": null, "cooldown": 0.0, "ui": treats_ui },
+	"sound": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/sound_ui.tscn") },
+	"sit": { "instance": null, "cooldown": 0.0, "ui": sit_ui },
+	"photo": { "instance": null, "cooldown": 0.0, "ui": photo_ui },
 }
 
+
+
 func _ready() -> void:
-	STATES["choose"].ui.visible = true;
-
-
-
+	STATES["choose"]["instance"] = STATES["choose"].ui.instantiate()
+	add_child(STATES["choose"]["instance"])
+	BattleSignals.connect("on_menu_option_selected", _on_battle_choose_option_selected)
+	BattleSignals.connect("on_pet_result", _on_pet_on_pet_attack)
+	BattleSignals.connect("on_sound_result", _on_sound_ui_on_sound_attack)
 
 func _on_battle_choose_option_selected(option_action: String) -> void:
 	STATES[option_action]["active"] = true
-	STATES[option_action]["ui"].visible = true
-	STATES["choose"].ui.visible = false;
-	STATES["choose"]["active"] = false;
+	STATES[option_action]["instance"] = STATES[option_action]["ui"].instantiate()
+	add_child(STATES[option_action]["instance"])
 
+	STATES["choose"]["instance"].queue_free()
 
-func _on_pet_attack_result(hit_success: bool) -> void:
+func change_scene_to_choose() -> void:
 	var current_action = ""
+	print(current_action)
 	for action in STATES.keys():
-		if STATES[action]["active"]:
+		if STATES[action]["instance"] != null:
 			current_action = action
 			break
 
-	STATES[current_action]["active"] = false
-	STATES[current_action]["ui"].visible = false
-	STATES["choose"].ui.visible = true;
+	STATES[current_action]["instance"].queue_free()
+	STATES["choose"]["instance"] = STATES["choose"]["ui"].instantiate()
+	add_child(STATES["choose"]["instance"])
 
 
-func _on_sound_ui_attack_result(hit_success: bool) -> void:
-	var current_action = ""
-	for action in STATES.keys():
-		if STATES[action]["active"]:
-			current_action = action
-			break
+func _on_pet_on_pet_attack(hit_success: bool) -> void:
+	change_scene_to_choose()
 
-	STATES[current_action]["active"] = false
-	STATES[current_action]["ui"].visible = false
-	STATES["choose"].ui.visible = true;
+
+func _on_sound_ui_on_sound_attack(hit_success: bool) -> void:
+	change_scene_to_choose()

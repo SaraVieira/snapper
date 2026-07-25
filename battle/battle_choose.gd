@@ -1,7 +1,5 @@
 extends Control
 
-signal option_selected(option_action: String)
-
 const COLS := 3
 
 var active_index := 0
@@ -20,7 +18,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("enter"):
-		emit_signal("option_selected", option_keys[active_index])
+		BattleSignals.emit_signal("on_menu_option_selected", option_keys[active_index])
 
 	if Input.is_action_just_pressed("left"):
 		active_index = (active_index - 1 + option_keys.size()) % option_keys.size()

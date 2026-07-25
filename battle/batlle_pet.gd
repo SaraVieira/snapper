@@ -1,7 +1,5 @@
 extends Node2D
 
-signal attack_result(hit_success: bool)
-
 @onready var position_marker: ColorRect = $"Position Marker"
 
 # RIGHT
@@ -62,7 +60,7 @@ func _process(delta: float) -> void:
 		await on_attack_result()
 		GameState.is_attacking = false
 		hit_success = randf() < likelyness_to_hit
-		emit_signal("attack_result", hit_success)
+		BattleSignals.emit_signal("on_pet_result", hit_success)
 
 
 
