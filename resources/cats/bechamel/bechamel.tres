@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="CatData" format=3 uid="uid://7l2a0a16f0yt"]
 
-[ext_resource type="SpriteFrames" uid="uid://c017ouhqe60at" path="res://resources/cats/bechamel/sprite_frames/overworld.tres" id="1_18udj"]
-[ext_resource type="Script" uid="uid://rmw7rp25dnho" path="res://resources/cats/cat.gd" id="1_ddwl8"]
+[ext_resource type="SpriteFrames" uid="uid://c017ouhqe60at" path="res://resources/cats/bechamel/sprite_frames/overworld.tres" id="1_rxdq1"]
+[ext_resource type="Script" uid="uid://rmw7rp25dnho" path="res://resources/cats/cat.gd" id="2_rwr0l"]
 
 [resource]
-script = ExtResource("1_ddwl8")
+script = ExtResource("2_rwr0l")
 id = &"Bechamel"
 display_name = "Bechamel"
-overworld_frames = ExtResource("1_18udj")
+overworld_frames = ExtResource("1_rxdq1")
+starting_trust = 50
+skittish = 0.095
 metadata/_custom_type_script = "uid://rmw7rp25dnho"
