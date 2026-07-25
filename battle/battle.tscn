@@ -1,43 +1,8 @@
 [gd_scene format=3 uid="uid://dvsgdsnca8d6s"]
 
-[ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="1_mqutd"]
 [ext_resource type="Script" uid="uid://dqwkfpful5an0" path="res://battle/battle.gd" id="1_qubjc"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tiqy5"]
-atlas = ExtResource("1_mqutd")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qubjc"]
-atlas = ExtResource("1_mqutd")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6hnvb"]
-atlas = ExtResource("1_mqutd")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4mnim"]
-atlas = ExtResource("1_mqutd")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b12lg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tiqy5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qubjc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6hnvb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4mnim")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://k6xopmnnc5le" path="res://resources/cats/cat.tscn" id="2_qubjc"]
+[ext_resource type="Resource" uid="uid://7l2a0a16f0yt" path="res://resources/cats/bechamel/bechamel.tres" id="3_6hnvb"]
 
 [node name="Battle" type="Control" unique_id=1418957341]
 layout_mode = 3
@@ -57,9 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.11292694, 0.1097113, 0.11661997, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=456170749]
-position = Vector2(155, 22)
+[node name="cat" parent="." unique_id=1249232417 instance=ExtResource("2_qubjc")]
+position = Vector2(-327, -262)
 scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_b12lg")
-autoplay = "default"
-frame_progress = 0.9330849
+data = ExtResource("3_6hnvb")

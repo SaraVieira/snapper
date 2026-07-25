@@ -9,6 +9,7 @@ var playback: AnimationNodeStateMachinePlayback
 
 func _ready() -> void:
 	playback = animation_tree["parameters/playback"]
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	input_vector = Input.get_vector("left", "right", "up", "down")

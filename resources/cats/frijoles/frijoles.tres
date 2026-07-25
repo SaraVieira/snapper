@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CatData" format=3 uid="uid://dptxi75wd4dsc"]
+
+[ext_resource type="Script" uid="uid://rmw7rp25dnho" path="res://resources/cats/cat.gd" id="1_kd2qg"]
+
+[resource]
+script = ExtResource("1_kd2qg")
+metadata/_custom_type_script = "uid://rmw7rp25dnho"

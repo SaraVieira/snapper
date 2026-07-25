@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://bgf4av3gn64mg"]
 
-[ext_resource type="Script" uid="uid://bkab0vj8tjo0x" path="res://battle/batlle_pet.gd" id="1_rpv5d"]
+[ext_resource type="Script" uid="uid://bkab0vj8tjo0x" path="res://battle/pet/pet.gd" id="1_rpv5d"]
 [ext_resource type="Texture2D" uid="uid://jopawqrevtof" path="res://assets/battle/battle.png" id="2_hta26"]
+[ext_resource type="FontFile" uid="uid://beitb4yna41fo" path="res://assets/fonts/BetterPixels.ttf" id="3_hta26"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7x0ad"]
+font = ExtResource("3_hta26")
 
 [node name="BatllePet" type="Node2D" unique_id=155137189]
 script = ExtResource("1_rpv5d")
@@ -48,3 +52,4 @@ offset_top = 39.0
 offset_right = 129.0
 offset_bottom = 62.0
 text = "TEST"
+label_settings = SubResource("LabelSettings_7x0ad")

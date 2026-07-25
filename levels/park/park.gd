@@ -9,8 +9,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
-
-func _on_cat_close(body: Node2D) -> void:
-	print_debug("You have entered the cat area") # Replace with function body.

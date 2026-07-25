@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://levels/park/park.gd" id="1_7mjl7"]
 [ext_resource type="TileSet" uid="uid://c7tkafxqpmtcq" path="res://assets/tile_set_exteriors.tres" id="1_n33tc"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://player/character.tscn" id="2_7mjl7"]
-[ext_resource type="Texture2D" uid="uid://d1ilqimohquy4" path="res://assets/cats/white.png" id="2_n33tc"]
 [ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://environment/environment.tscn" id="2_r2x14"]
 [ext_resource type="Texture2D" uid="uid://dll2bdc6xufqb" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_16x16.png" id="4_v4b5n"]
 [ext_resource type="Texture2D" uid="uid://bwdwqvkkamxum" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_2_16x16.png" id="6_cowak"]
+[ext_resource type="PackedScene" uid="uid://k6xopmnnc5le" path="res://resources/cats/cat.tscn" id="7_qbmll"]
 [ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="7_v6yfi"]
+[ext_resource type="Resource" uid="uid://7l2a0a16f0yt" path="res://resources/cats/bechamel/bechamel.tres" id="8_1klq6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cowak"]
 atlas = ExtResource("4_v4b5n")
@@ -121,54 +122,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b12lg"]
 size = Vector2(113, 48)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu4lt"]
-size = Vector2(9, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mjl7"]
-atlas = ExtResource("2_n33tc")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2x14"]
-atlas = ExtResource("2_n33tc")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbwbv"]
-atlas = ExtResource("2_n33tc")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6yfi"]
-atlas = ExtResource("2_n33tc")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_b12lg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mjl7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r2x14")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qbwbv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6yfi")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thxxq"]
-size = Vector2(9, 12)
-
 [node name="Park" type="Node2D" unique_id=2103047488]
 y_sort_enabled = true
 script = ExtResource("1_7mjl7")
 
 [node name="Enviroment" parent="." unique_id=631614254 instance=ExtResource("2_r2x14")]
-position = Vector2(22.150455, 16.043673)
+position = Vector2(6, 1)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1801259184]
 texture_filter = 1
@@ -234,7 +193,7 @@ position = Vector2(-300.5, 49)
 shape = SubResource("RectangleShape2D_b12lg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350693477]
-position = Vector2(45, 18)
+position = Vector2(-72, 188)
 limit_left = -334
 limit_top = -95
 limit_right = 175
@@ -242,33 +201,15 @@ limit_bottom = 290
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="cat" type="StaticBody2D" parent="." unique_id=1613106811]
-position = Vector2(23.5, 18)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cat" unique_id=1410297682]
-shape = SubResource("RectangleShape2D_cu4lt")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="cat" unique_id=1580931025]
-y_sort_enabled = true
-position = Vector2(0.5, 3)
-sprite_frames = SubResource("SpriteFrames_b12lg")
-autoplay = "default"
-offset = Vector2(0, -14)
-
-[node name="Area2D" type="Area2D" parent="cat" unique_id=1013722991]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cat/Area2D" unique_id=1508453983]
-position = Vector2(1, -1)
-shape = SubResource("RectangleShape2D_thxxq")
+[node name="cat" parent="." unique_id=1249232417 instance=ExtResource("7_qbmll")]
+position = Vector2(-256, 61)
+data = ExtResource("8_1klq6")
 
 [node name="CharacterBody2D" parent="." unique_id=667172494 instance=ExtResource("2_7mjl7")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(46, 23)
+position = Vector2(-71, 193)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D" unique_id=1597134344]
 position = Vector2(-1, -5)
 remote_path = NodePath("../../Camera2D")
-
-[connection signal="body_entered" from="cat/Area2D" to="." method="_on_cat_close"]

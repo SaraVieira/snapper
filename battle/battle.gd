@@ -1,21 +1,15 @@
 extends Control
 
 
-@onready var hand_ui: Node2D = $Pet;
-@onready var treats_ui: Node2D = $Pet;
-@onready var sit_ui: Node2D = $Pet;
-@onready var photo_ui: Node2D = $Pet;
-
-
 var ACTIONS := ["pet", "hand", "treats", "sound", "sit", "photo"]
 @onready var STATES = {
-	"choose": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/battle_choose.tscn") },
-	"pet": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/batlle_pet.tscn") },
-	"hand": { "instance": null, "cooldown": 0.0, "ui": hand_ui },
-	"treats": { "instance": null, "cooldown": 0.0, "ui": treats_ui },
-	"sound": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/sound_ui.tscn") },
-	"sit": { "instance": null, "cooldown": 0.0, "ui": sit_ui },
-	"photo": { "instance": null, "cooldown": 0.0, "ui": photo_ui },
+	"choose": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/choose/choose.tscn") },
+	"pet": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/pet/pet.tscn") },
+	"hand": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/hand/hand.tscn") },
+	"treats": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/treats/treats.tscn") },
+	"sound": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/sound/sound.tscn") },
+	"sit": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/sit/sit.tscn") },
+	"photo": { "instance": null, "cooldown": 0.0, "ui": preload("res://battle/photo/photo.tscn") },
 }
 
 

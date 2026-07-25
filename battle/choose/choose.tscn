@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://bjnx54jn8jy51"]
 
-[ext_resource type="Script" uid="uid://c12iggyrgpcfu" path="res://battle/battle_choose.gd" id="1_robjp"]
+[ext_resource type="Script" uid="uid://c12iggyrgpcfu" path="res://battle/choose/choose.gd" id="1_robjp"]
 [ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="1_wfs5p"]
 [ext_resource type="Texture2D" uid="uid://d3n3e57x64cf4" path="res://assets/modernuserinterface-win/16x16/Modern_UI_Style_1.png" id="2_robjp"]
-[ext_resource type="LabelSettings" uid="uid://lr2j504sowe3" path="res://battle/label_text.tres" id="3_60y7h"]
+[ext_resource type="LabelSettings" uid="uid://lr2j504sowe3" path="res://assets/label_text.tres" id="3_60y7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b12lg"]
 atlas = ExtResource("2_robjp")
