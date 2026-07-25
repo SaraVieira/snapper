@@ -22,11 +22,10 @@ func _ready() -> void:
 	BattleSignals.connect("on_sound_result", _on_sound_ui_on_sound_attack)
 
 func _on_battle_choose_option_selected(option_action: String) -> void:
-	STATES[option_action]["active"] = true
 	STATES[option_action]["instance"] = STATES[option_action]["ui"].instantiate()
 	add_child(STATES[option_action]["instance"])
-
 	STATES["choose"]["instance"].queue_free()
+	STATES["choose"]["instance"] = null
 
 func change_scene_to_choose() -> void:
 	var current_action = ""

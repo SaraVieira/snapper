@@ -5,7 +5,6 @@ const COLS := 3
 var active_index := 0
 var option_keys
 
-CatData.is
 func _ready() -> void:
 	var parent = get_parent()
 	if "ACTIONS" in parent:
