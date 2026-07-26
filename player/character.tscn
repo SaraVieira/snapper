@@ -439,6 +439,7 @@ states/Walk/position = Vector2(432.5, 90)
 size = Vector2(6, 5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=667172494 node_paths=PackedStringArray("animation_tree")]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("5_yuy7h")
 animation_tree = NodePath("AnimationTree")
 
