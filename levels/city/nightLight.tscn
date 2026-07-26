@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b5l003t5vub7h"]
+
+[ext_resource type="Texture2D" uid="uid://by3v4xijnmmdx" path="res://assets/point_light_simple.tres" id="1_7k2r3"]
+[ext_resource type="Script" uid="uid://cw1pfbkgdcgpv" path="res://levels/city/night_light.gd" id="2_7ojl7"]
+
+[node name="NightLight" type="PointLight2D" unique_id=645038287]
+scale = Vector2(0.09062495, 0.080985054)
+color = Color(0.6431373, 0.63529414, 0, 1)
+texture = ExtResource("1_7k2r3")
+script = ExtResource("2_7ojl7")
