@@ -1,5 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-docs/
 addons/project_wiki
