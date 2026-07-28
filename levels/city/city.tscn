@@ -67,7 +67,8 @@ position = Vector2(-1, -5)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1350693477]
-position = Vector2(-40, 198)
+position = Vector2(-40.5, 195.5)
+scale = Vector2(1.5, 1.5)
 limit_left = -335
 limit_top = -29
 limit_right = 177
@@ -87,9 +88,12 @@ position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_car")
 
 [node name="Exit 1" type="Area2D" parent="." unique_id=1762987432]
+top_level = true
+position = Vector2(-16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit 1" unique_id=716302718]
-position = Vector2(166.5, 202)
+top_level = true
+position = Vector2(75.5, 202)
 shape = SubResource("RectangleShape2D_cu4lt")
 debug_color = Color(0.7647228, 0.34986654, 0.6905342, 1)
 

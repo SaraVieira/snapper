@@ -11,4 +11,4 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print_debug("%s noticed you" % data.display_name)
+		GameState.change_scene("CATCH")
