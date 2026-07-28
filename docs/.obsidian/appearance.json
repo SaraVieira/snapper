@@ -1,0 +1,10 @@
+{
+  "cssTheme": "Shiba Inu",
+  "theme": "obsidian",
+  "accentColor": "#ccc3df",
+  "enabledCssSnippets": [
+    "sidebar"
+  ],
+  "showViewHeader": false,
+  "showRibbon": true
+}
