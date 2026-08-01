@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://q70rmirsc0yq"]
+
+[ext_resource type="Texture2D" uid="uid://dtja7ekbip71k" path="res://assets/tilesets/11_Camping_16x16.png" id="1_dn3cb"]
+[ext_resource type="Shader" uid="uid://bgqra7qxxupo6" path="res://components/wind_trees.gdshader" id="1_fd6ro"]
+[ext_resource type="Texture2D" path="res://assets/new_noise_texture_2d.tres" id="2_vkh7b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fd6ro"]
+shader = ExtResource("1_fd6ro")
+shader_parameter/render_noise = false
+shader_parameter/noise_texture = ExtResource("2_vkh7b")
+shader_parameter/amplitude = 0.07999999821184
+shader_parameter/time_scale = 0.04
+shader_parameter/noise_scale = 0.001
+shader_parameter/rotation_strength = 0.80000001192096
+shader_parameter/rotation_pivot = Vector2(0.63, 0)
+
+[node name="WindTrees" type="Node2D" unique_id=301181377]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=547825422]
+material = SubResource("ShaderMaterial_fd6ro")
+texture = ExtResource("1_dn3cb")
+region_enabled = true
+region_rect = Rect2(320, 960, 32, 64)

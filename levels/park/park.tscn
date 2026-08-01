@@ -211,3 +211,9 @@ position = Vector2(-71, 193)
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D" unique_id=1597134344]
 position = Vector2(-1, -5)
 remote_path = NodePath("../../Camera2D")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1442837711]
+offset_left = -351.0
+offset_top = -111.0
+offset_right = 191.0
+offset_bottom = 304.0
