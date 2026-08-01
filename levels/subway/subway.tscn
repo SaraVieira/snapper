@@ -1,22 +1,27 @@
 [gd_scene format=3 uid="uid://oei315udojjf"]
 
+[ext_resource type="Script" uid="uid://beg14mys63al2" path="res://levels/subway/subway.gd" id="1_65pvv"]
 [ext_resource type="PackedScene" uid="uid://map" path="res://assets/spritefusion/subway/Map.tscn" id="1_ks6ex"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://player/character.tscn" id="11_80ou3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7x0ad"]
+size = Vector2(34, 26.5)
+
 [node name="Subway" type="Node2D" unique_id=1905423829]
+script = ExtResource("1_65pvv")
 
 [node name="map" parent="." unique_id=1964940361 instance=ExtResource("1_ks6ex")]
 
 [node name="CharacterBody2D" parent="." unique_id=667172494 instance=ExtResource("11_80ou3")]
 y_sort_enabled = true
-position = Vector2(240.5, 272.5)
+position = Vector2(240.50002, 384.5)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D" unique_id=1020151529]
 position = Vector2(-1, -5)
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=100851276]
-position = Vector2(239, 265)
+position = Vector2(239.00002, 377)
 scale = Vector2(1.5, 1.5)
 limit_left = 9
 limit_top = 104
@@ -24,3 +29,18 @@ limit_right = 544
 limit_bottom = 442
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="ExitBottom" type="Area2D" parent="." unique_id=1976717923]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitBottom" unique_id=2041413226]
+position = Vector2(526, 360.5)
+shape = SubResource("RectangleShape2D_7x0ad")
+
+[node name="ExitTop" type="Area2D" parent="." unique_id=361918118]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTop" unique_id=316472635]
+position = Vector2(528, 234)
+shape = SubResource("RectangleShape2D_7x0ad")
+
+[connection signal="body_entered" from="ExitBottom" to="." method="_on_exit_bottom_body_entered"]
+[connection signal="body_entered" from="ExitTop" to="." method="_on_exit_top_body_entered"]
