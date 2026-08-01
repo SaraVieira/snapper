@@ -13,9 +13,15 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	input_vector = Input.get_vector("left", "right", "up", "down")
-	velocity = input_vector * SPEED
+
+	if Input.is_action_pressed("shift"):
+		velocity = input_vector * (SPEED * 1.5)
+	else:
+		velocity = input_vector * SPEED
+
+
 	move_and_slide()
-	select_animation()
+	select_animation() 
 	update_animation_params()
 
 func select_animation():

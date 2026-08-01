@@ -39,14 +39,20 @@
             "id": "67d4d35edf9583f2",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "kanban",
               "state": {
-                "file": "Game Ideas.md",
-                "mode": "source",
-                "source": false
+                "file": "Todos.md",
+                "kanbanViewState": {
+                  "kanban-plugin": "board",
+                  "list-collapse": [
+                    false,
+                    false,
+                    false
+                  ]
+                }
               },
-              "icon": "lucide-file",
-              "title": "Game Ideas"
+              "icon": "lucide-trello",
+              "title": "Todos"
             }
           },
           {
@@ -133,7 +139,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Game Ideas.md",
+                "file": "Todos.md",
                 "collapseAll": true,
                 "extraContext": true,
                 "sortOrder": "alphabetical",
@@ -143,7 +149,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Game Ideas"
+              "title": "Backlinks for Todos"
             }
           },
           {
@@ -162,12 +168,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Game Ideas.md",
+                "file": "Todos.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Game Ideas"
+              "title": "Outgoing links from Todos"
             }
           },
           {
@@ -205,13 +211,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Game Ideas.md",
+                "file": "Todos.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Game Ideas"
+              "title": "Outline of Todos"
             }
           }
         ],
@@ -219,7 +225,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 220.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -234,9 +240,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "67d4d35edf9583f2",
+  "active": "0350fc4e736c48f9",
   "lastOpenFiles": [
     "Game Ideas.md",
+    "Untitled Kanban.md",
     "Design Document.md",
     "systems/cats.md",
     "systems/moves.md",

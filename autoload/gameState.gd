@@ -8,6 +8,7 @@ signal day_started
 signal night_started
 
 
+
 const DAY_START_HOUR := 6
 const NIGHT_START_HOUR := 18
 var LEVELS = {
@@ -21,11 +22,19 @@ var is_attacking := false
 
 @export var hours_per_second := 1.0
 
+var showUI: bool = true
 var TIME: float
 var _last_hour: int = -1
 
+var is_changing_scene := false
+
+
 func change_scene(scene: String) -> void:
+	if is_changing_scene:
+		return
+
 	if LEVELS.has(scene):
+		is_changing_scene = true
 		currentLevel = LEVELS[scene]
 		changed_scene.emit()
 	else:
@@ -41,6 +50,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if(player_stamina <= 0):
 		player_died.emit()
+
+	if currentLevel == LEVELS["CATCH"] :
+		showUI = false
+	else:
+		showUI = true
 
 	TIME += delta * hours_per_second
 	var current_hour = hour()

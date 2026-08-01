@@ -93,11 +93,12 @@ position = Vector2(-16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit 1" unique_id=716302718]
 top_level = true
-position = Vector2(75.5, 202)
+position = Vector2(94.5, 202)
 shape = SubResource("RectangleShape2D_cu4lt")
 debug_color = Color(0.7647228, 0.34986654, 0.6905342, 1)
 
 [node name="Enviroment" parent="." unique_id=631614254 instance=ExtResource("5_bl6cj")]
+position = Vector2(84, 4)
 
 [node name="PointLight2D2" parent="." unique_id=645038287 instance=ExtResource("6_01u77")]
 position = Vector2(25, 128)

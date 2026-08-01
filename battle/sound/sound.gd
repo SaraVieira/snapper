@@ -52,15 +52,10 @@ func _process(delta: float) -> void:
 func attack() -> void:
 	var allValue =  (red_value + green_value + yellow_value) / 3
 	var hit_success = randf() < allValue
-	hit.visible = true
 
-	if hit_success:
-		hit.text = "Hit!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
-	else:
-		hit.text = "Miss!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
+	hit.text = "Hit!" if hit_success else "Miss!"
+	hit.visible = true
 	await (get_tree().create_timer(1.0)).timeout
+	hit.visible = false
+
 	BattleSignals.emit_signal("on_sound_result", hit_success)

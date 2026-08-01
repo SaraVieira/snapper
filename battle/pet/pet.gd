@@ -22,6 +22,7 @@ var direction = 1
 
 var likelyness_to_hit: float = 0
 var hit_success: bool = false
+var has_attacked: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,7 +44,8 @@ func _process(delta: float) -> void:
 	position_marker.global_position.x += direction * 100 * delta
 
 	# on click space, stop the position marker and check if it is in the green zone
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and not has_attacked:
+		has_attacked = true
 		GameState.is_attacking = true
 
 		# direction = 0
@@ -57,20 +59,15 @@ func _process(delta: float) -> void:
 			likelyness_to_hit = 0.0
 
 
+		hit_success = randf() < likelyness_to_hit
 		await on_attack_result()
 		GameState.is_attacking = false
-		hit_success = randf() < likelyness_to_hit
 		BattleSignals.emit_signal("on_pet_result", hit_success)
 
 
 
 func on_attack_result() -> void:
+	hit.text = "Hit!" if hit_success else "Miss!"
 	hit.visible = true
-	if hit_success:
-		hit.text = "Hit!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
-	else:
-		hit.text = "Miss!"
-		await (get_tree().create_timer(1.0)).timeout
-		hit.visible = false
+	await (get_tree().create_timer(1.0)).timeout
+	hit.visible = false

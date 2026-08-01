@@ -8,6 +8,5 @@ script = ExtResource("2_rwr0l")
 id = &"Bechamel"
 display_name = "Bechamel"
 overworld_frames = ExtResource("1_rxdq1")
-starting_trust = 50
 skittish = 0.095
 metadata/_custom_type_script = "uid://rmw7rp25dnho"
