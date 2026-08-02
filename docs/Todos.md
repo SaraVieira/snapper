@@ -10,12 +10,13 @@ kanban-plugin: board
 - [ ] Improve charecter size to be 32px with 1px borders either way
 - [ ] have a way to exit a battle
 - [ ] Animate trains on the tracks
-- [ ] Start NPC's in the subway
 
 
 ## Doing
 
 - [ ] Make sure alls scenes load well
+- [ ] Start NPC's in the subway
+- [ ] Add dialog system
 
 
 ## Done

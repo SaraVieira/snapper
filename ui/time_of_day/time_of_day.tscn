@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cl562se0gqkcx" path="res://ui/time_of_day/time_of_day.gd" id="1_nvmg2"]
 [ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="2_kribu"]
+[ext_resource type="FontFile" uid="uid://beitb4yna41fo" path="res://assets/fonts/BetterPixels.ttf" id="3_2p4r8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ly7oj"]
-font_size = 12
-font_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
+font = ExtResource("3_2p4r8")
+font_color = Color(0.14406255, 0.14406255, 0.14406255, 1)
 
 [node name="time of day" type="Control" unique_id=1826746424]
 layout_mode = 3

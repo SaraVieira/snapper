@@ -1,0 +1,50 @@
+[gd_scene format=4 uid="uid://bisv7lleko3tx"]
+
+[ext_resource type="Texture2D" uid="uid://d3n3e57x64cf4" path="res://assets/modernuserinterface-win/16x16/Modern_UI_Style_1.png" id="1_47ok5"]
+[ext_resource type="Script" uid="uid://cmwvjd83eu2bd" path="res://components/dialogue/dialog_box.gd" id="1_wr2kc"]
+[ext_resource type="TileSet" uid="uid://dyxboudkmnw4c" path="res://assets/tilesets/modern_ui.tres" id="2_wr2kc"]
+[ext_resource type="FontFile" uid="uid://beitb4yna41fo" path="res://assets/fonts/BetterPixels.ttf" id="3_7c1ur"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7x0ad"]
+texture = ExtResource("1_47ok5")
+region_rect = Rect2(65, 304, 16, 16)
+
+[sub_resource type="Theme" id="Theme_7x0ad"]
+default_font = ExtResource("3_7c1ur")
+RichTextLabel/colors/default_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+RichTextLabel/constants/line_separation = -4
+RichTextLabel/font_sizes/bold_font_size = 14
+RichTextLabel/font_sizes/bold_italics_font_size = 14
+RichTextLabel/font_sizes/italics_font_size = 14
+RichTextLabel/font_sizes/mono_font_size = 14
+RichTextLabel/font_sizes/normal_font_size = 14
+
+[node name="DialogBox" type="Control" unique_id=1698959358]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_wr2kc")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=302529178]
+z_index = 99
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7x0ad")
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="PanelContainer" unique_id=603564224]
+tile_map_data = PackedByteArray("AAD/////AAADABIAAAAAAP//AAAEABIAAAABAP//AAAEABIAAAACAP//AAAEABIAAAADAP//AAAEABIAAAAEAP//AAAEABIAAAAAAAIAAAAEABQAAAABAAIAAAAEABQAAAACAAIAAAAEABQAAAADAAIAAAAEABQAAAAEAAIAAAAEABQAAAAFAAIAAAAEABQAAAAGAAEAAAAFABMAAAAGAAAAAAAFABMAAAAGAP//AAAFABIAAAAFAP//AAAEABIAAAD//wAAAAADABMAAAD//wEAAAADABMAAAD//wIAAAADABQAAAAGAAIAAAAFABQAAAA=")
+tile_set = ExtResource("2_wr2kc")
+
+[node name="dialogue" type="RichTextLabel" parent="PanelContainer/TileMapLayer" unique_id=92242919]
+unique_name_in_owner = true
+offset_top = -1.0
+offset_right = 95.0
+offset_bottom = 35.0
+theme = SubResource("Theme_7x0ad")
+text = "sjhdajshdkjashdjkashdkjashdkjshakdjahjsahdk"

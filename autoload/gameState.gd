@@ -1,14 +1,16 @@
 extends Node
 
+
 signal player_stamina_changed(stamina: int)
 signal player_died()
 signal changed_scene()
 signal battle_started(cat_data: CatData)
 signal battle_ended()
+signal chat_started(text: String)
+signal chat_ended()
 signal hour_changed(hour: int)
 signal day_started
 signal night_started
-
 
 
 const DAY_START_HOUR := 6
@@ -24,6 +26,7 @@ var currentLevel = LEVELS["SUBWAY"]
 var player_stamina := MAX_STAMINA
 var _player_dead := false
 var is_attacking := false
+var is_chatting := false
 
 @export var hours_per_second := 1.0
 
@@ -46,9 +49,18 @@ func change_scene(scene: String) -> void:
 		push_warning("Unknown level: " + scene)
 
 
-## A battle is an overlay on top of the live overworld, not a level swap — World
-## pauses the tree and puts battle.tscn on its own CanvasLayer, so the level the
-## player was standing in is still there when the battle ends.
+func start_chatting(dialog: String) -> void:
+	if is_chatting or is_changing_scene:
+		return
+	is_chatting = true;
+	chat_started.emit(dialog)
+	
+func stop_chatting() -> void:
+	if not is_chatting:
+		return
+	is_chatting = false;
+	chat_ended.emit()
+
 func start_battle(cat_data: CatData) -> void:
 	if is_battling or is_changing_scene:
 		return
@@ -65,8 +77,7 @@ func end_battle() -> void:
 	battle_ended.emit()
 
 
-## The only way stamina should change. Emits player_died once on the transition
-## to zero rather than continuously while at zero, and re-arms if it comes back.
+
 func set_stamina(value: int) -> void:
 	var clamped := clampi(value, 0, MAX_STAMINA)
 	if clamped == player_stamina:
@@ -82,7 +93,7 @@ func set_stamina(value: int) -> void:
 		player_died.emit()
 
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	var user_time = Time.get_time_dict_from_system()
 	TIME =  user_time.hour + user_time.minute / 60.0
