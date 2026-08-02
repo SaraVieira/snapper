@@ -15,32 +15,42 @@
 [node name="map" type="Node2D" unique_id=1845152458]
 
 [node name="floor_10" parent="." unique_id=2116198341 instance=ExtResource("10_id")]
+y_sort_enabled = true
 collision_enabled = true
 
 [node name="props_top_behind_9" parent="." unique_id=713864841 instance=ExtResource("9_id")]
 collision_enabled = true
 
 [node name="stairs_8" parent="." unique_id=280556871 instance=ExtResource("8_id")]
+y_sort_enabled = true
 collision_enabled = true
 
 [node name="walls_collision_7" parent="." unique_id=1099127171 instance=ExtResource("7_id")]
 y_sort_enabled = true
 
 [node name="walls_6" parent="." unique_id=1889562520 instance=ExtResource("6_id")]
+y_sort_enabled = true
 collision_enabled = true
 
 [node name="props_top_5" parent="." unique_id=693976758 instance=ExtResource("5_id")]
-collision_enabled = true
-
-[node name="wall_craks_4" parent="." unique_id=168845679 instance=ExtResource("4_id")]
+y_sort_enabled = true
 collision_enabled = true
 
 [node name="tracks_3" parent="." unique_id=1711501053 instance=ExtResource("3_id")]
-collision_enabled = true
-
-[node name="train_bottom_2" parent="." unique_id=1693889575 instance=ExtResource("2_id")]
-
-[node name="props_bottom_1" parent="." unique_id=1254514118 instance=ExtResource("1_id")]
+y_sort_enabled = true
 collision_enabled = true
 
 [node name="train_top_0" parent="." unique_id=458857429 instance=ExtResource("0_id")]
+y_sort_enabled = true
+
+[node name="wall_craks_4" parent="." unique_id=168845679 instance=ExtResource("4_id")]
+z_index = 1
+collision_enabled = true
+
+[node name="train_bottom_2" parent="." unique_id=1693889575 instance=ExtResource("2_id")]
+z_index = 1
+y_sort_enabled = true
+
+[node name="props_bottom_1" parent="." unique_id=1254514118 instance=ExtResource("1_id")]
+y_sort_enabled = true
+collision_enabled = true
