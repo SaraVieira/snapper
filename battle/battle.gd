@@ -17,6 +17,14 @@ var current_action := ""
 
 var trust := 0
 
+## Set by world.gd before add_child(). Left null when battle.tscn is run on its
+## own (F6), in which case the cat instance keeps the data baked into the scene.
+var cat_data: CatData
+
+
+func setup(data: CatData) -> void:
+	cat_data = data
+
 
 func _show_choose() -> void:
 	var inst = STATES["choose"]["ui"].instantiate()
@@ -25,6 +33,12 @@ func _show_choose() -> void:
 	inst.setup(cat.data, trust)
 
 func _ready() -> void:
+	# cat._ready() has already run by now (children first), so re-apply the art.
+	if cat_data:
+		cat.data = cat_data
+		cat.apply_data()
+	cat.enter_battle_mode()
+
 	trust = cat.data.starting_trust
 
 	BattleSignals.connect("on_menu_option_selected", _on_battle_choose_option_selected)

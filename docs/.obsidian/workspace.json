@@ -86,7 +86,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -225,7 +227,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 220.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -240,7 +243,7 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "0350fc4e736c48f9",
+  "active": "67d4d35edf9583f2",
   "lastOpenFiles": [
     "Game Ideas.md",
     "Untitled Kanban.md",

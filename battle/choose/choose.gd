@@ -46,6 +46,11 @@ func _move(step: int) -> void:
 
 
 func _process(delta: float) -> void:
+	# Walking away is only allowed from the menu — not mid-minigame.
+	if Input.is_action_just_pressed("back"):
+		GameState.end_battle()
+		return
+
 	if Input.is_action_just_pressed("enter") and not _is_locked(option_keys[active_index]):
 		BattleSignals.emit_signal("on_menu_option_selected", option_keys[active_index])
 

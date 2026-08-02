@@ -23,7 +23,13 @@ position = Vector2(8, 1)
 
 [node name="Node2D" type="Node2D" parent="CurrentLevel" unique_id=703077761]
 
+[node name="BattleLayer" type="CanvasLayer" parent="." unique_id=669017397]
+process_mode = 3
+layer = 1
+
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=669017396]
+process_mode = 3
+layer = 2
 
 [node name="Fade" type="ColorRect" parent="FadeLayer" unique_id=168342628]
 material = SubResource("ShaderMaterial_fade")
