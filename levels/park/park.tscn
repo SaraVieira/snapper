@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bwdwqvkkamxum" path="res://assets/modernexteriors-win/Animated_sheets_16x16/Campfire_2_16x16.png" id="6_cowak"]
 [ext_resource type="PackedScene" uid="uid://k6xopmnnc5le" path="res://resources/cats/cat.tscn" id="7_qbmll"]
 [ext_resource type="Resource" uid="uid://7l2a0a16f0yt" path="res://resources/cats/bechamel/bechamel.tres" id="8_1klq6"]
+[ext_resource type="PackedScene" uid="uid://n6by1n32x2fu" path="res://components/exit/exit.tscn" id="10_wls4q"]
+[ext_resource type="PackedScene" uid="uid://dfmrjnhuyh4vr" path="res://components/cars/car.tscn" id="11_qqai3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cowak"]
 atlas = ExtResource("4_v4b5n")
@@ -223,3 +225,20 @@ offset_left = -351.0
 offset_top = -111.0
 offset_right = 191.0
 offset_bottom = 304.0
+
+[node name="Exit" parent="." unique_id=112710850 instance=ExtResource("10_wls4q")]
+position = Vector2(-335, 294)
+target_level = "CITY"
+target_spawn = &"From Park"
+
+[node name="Car" parent="." unique_id=906627396 instance=ExtResource("11_qqai3")]
+z_index = 1
+position = Vector2(-80.22697, 301)
+car = "Bus"
+direction = "Right"
+
+[node name="Car2" parent="." unique_id=1344854785 instance=ExtResource("11_qqai3")]
+z_index = 1
+position = Vector2(-302.5284, 335)
+car = "green"
+direction = "Left"
