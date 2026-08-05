@@ -23,6 +23,7 @@ var LEVELS = {
 	  "CITY": { "scene": preload("res://levels/city/city.tscn"), "fade": Color("3d3d4e") }
 }
 var currentLevel = LEVELS["SUBWAY"]
+var pending_spawn: StringName = &""
 var player_stamina := MAX_STAMINA
 var _player_dead := false
 var is_attacking := false
@@ -37,13 +38,16 @@ var is_changing_scene := false
 var is_battling := false
 
 
-func change_scene(scene: String) -> void:
+## Read by Level._ready() on the way in, and set by whichever LevelExit was
+## walked into. Empty on boot, so the first level uses its own default_spawn.
+func change_scene(scene: String, spawn: StringName = &"") -> void:
 	if is_changing_scene or is_battling:
 		return
 
 	if LEVELS.has(scene):
 		is_changing_scene = true
 		currentLevel = LEVELS[scene]
+		pending_spawn = spawn
 		changed_scene.emit()
 	else:
 		push_warning("Unknown level: " + scene)

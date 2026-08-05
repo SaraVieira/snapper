@@ -20,6 +20,10 @@ func _ready() -> void:
 # anchors resolve against a Node2D's empty rect and everything collapses to 0x0.
 func _spawn_level() -> void:
 	for n in $CurrentLevel.get_children():
+		# Detached before freeing: queue_free() only takes effect at the end of the
+		# frame, which would leave the outgoing level in the tree — and in the
+		# "player" group — while the incoming level runs _ready.
+		$CurrentLevel.remove_child(n)
 		n.queue_free()
 
 	var scene = GameState.currentLevel.scene.instantiate()

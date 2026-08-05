@@ -1,14 +1,13 @@
 [gd_scene format=4 uid="uid://c7jdo1af8jkim"]
 
-[ext_resource type="Script" uid="uid://bo0vrk136b502" path="res://levels/city/city.gd" id="1_rqxma"]
+[ext_resource type="PackedScene" uid="uid://n6by1n32x2fu" path="res://components/exit.tscn" id="1_exit"]
+[ext_resource type="Script" uid="uid://4n0asy8gwdv6" path="res://classes/level.gd" id="1_rqxma"]
 [ext_resource type="TileSet" uid="uid://c7tkafxqpmtcq" path="res://assets/tile_set_exteriors.tres" id="2_mcn2j"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://player/character.tscn" id="2_movw8"]
 [ext_resource type="Texture2D" uid="uid://bdebbxpdxjjlc" path="res://assets/tilesets/10_Vehicles_16x16.png" id="3_oacpt"]
 [ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://environment/environment.tscn" id="5_bl6cj"]
 [ext_resource type="PackedScene" uid="uid://b5l003t5vub7h" path="res://levels/city/nightLight.tscn" id="6_01u77"]
 [ext_resource type="Texture2D" uid="uid://btdy1umdnim1s" path="res://assets/tilesets/3_City_Props_16x16.png" id="7_d2056"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2056"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tlwt5"]
 load_path = "res://.godot/imported/3_City_Props_16x16.png-954a07966f8eee6d61c8bb3c40a4f724.ctex"
@@ -23,19 +22,27 @@ region = Rect2(195, 154, 61, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_car"]
 size = Vector2(60, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu4lt"]
-size = Vector2(19, 24)
-
-[node name="City" type="Node2D" unique_id=2103047488]
+[node name="City" type="Node2D" unique_id=2103047488 node_paths=PackedStringArray("SpawnPoints")]
 y_sort_enabled = true
 script = ExtResource("1_rqxma")
+SpawnPoints = [NodePath("From Subway"), NodePath("From Park"), NodePath("From Subway Top")]
+default_spawn = &"From Subway"
+metadata/_custom_type_script = "uid://4n0asy8gwdv6"
 
-[node name="ExitSubway" type="Area2D" parent="." unique_id=1459316371]
+[node name="ExitSubway" parent="." unique_id=1459316371 instance=ExtResource("1_exit")]
 y_sort_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitSubway" unique_id=1499611549]
 position = Vector2(-302, 239)
-shape = SubResource("RectangleShape2D_d2056")
+target_level = "SUBWAY"
+target_spawn = &"Spawn Stairs Bottom"
+
+[node name="From Subway" type="Marker2D" parent="." unique_id=1459316372]
+position = Vector2(-279, 235)
+
+[node name="From Park" type="Marker2D" parent="." unique_id=1459316373]
+position = Vector2(94, 224)
+
+[node name="From Subway Top" type="Marker2D" parent="." unique_id=877651114]
+position = Vector2(-320, 88)
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1801259184]
 texture_filter = 1
@@ -96,18 +103,14 @@ offset = Vector2(0, -19)
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_car")
 
-[node name="Exit 1" type="Area2D" parent="." unique_id=1762987432]
+[node name="Exit to park" parent="." unique_id=1762987432 instance=ExtResource("1_exit")]
 top_level = true
-position = Vector2(-16, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit 1" unique_id=716302718]
-top_level = true
-position = Vector2(94.5, 202)
-shape = SubResource("RectangleShape2D_cu4lt")
-debug_color = Color(0.7647228, 0.34986654, 0.6905342, 1)
+position = Vector2(102.5, 218)
+target_level = "PARK"
+target_spawn = &"From City"
 
 [node name="Enviroment" parent="." unique_id=631614254 instance=ExtResource("5_bl6cj")]
-position = Vector2(81, 1)
+position = Vector2(89, 11)
 
 [node name="PointLight2D2" parent="." unique_id=645038287 instance=ExtResource("6_01u77")]
 position = Vector2(25, 128)
@@ -126,6 +129,3 @@ position = Vector2(-165, 192)
 texture = ExtResource("7_d2056")
 region_enabled = true
 region_rect = Rect2(352, 272, 16, 16)
-
-[connection signal="body_entered" from="ExitSubway" to="." method="_on_exit_subway_body_entered"]
-[connection signal="body_entered" from="Exit 1" to="." method="_on_exit_1_body_entered"]

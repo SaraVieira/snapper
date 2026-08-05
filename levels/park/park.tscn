@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://boxd0r8ln4x1o"]
 
-[ext_resource type="Script" uid="uid://c1fg2k3nfadx" path="res://levels/park/park.gd" id="1_7mjl7"]
+[ext_resource type="Script" uid="uid://4n0asy8gwdv6" path="res://classes/level.gd" id="1_7mjl7"]
 [ext_resource type="TileSet" uid="uid://c7tkafxqpmtcq" path="res://assets/tile_set_exteriors.tres" id="1_n33tc"]
 [ext_resource type="PackedScene" uid="uid://bhum3lcfskf45" path="res://player/character.tscn" id="2_7mjl7"]
 [ext_resource type="PackedScene" uid="uid://cropf4n42bnnp" path="res://environment/environment.tscn" id="2_r2x14"]
@@ -122,9 +122,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b12lg"]
 size = Vector2(113, 48)
 
-[node name="Park" type="Node2D" unique_id=2103047488]
+[node name="Park" type="Node2D" unique_id=2103047488 node_paths=PackedStringArray("SpawnPoints")]
 y_sort_enabled = true
 script = ExtResource("1_7mjl7")
+SpawnPoints = [NodePath("From City")]
+default_spawn = &"From City"
+metadata/_custom_type_script = "uid://4n0asy8gwdv6"
+
+[node name="From City" type="Marker2D" parent="." unique_id=2103047489]
+position = Vector2(-119, 297)
 
 [node name="Enviroment" parent="." unique_id=631614254 instance=ExtResource("2_r2x14")]
 position = Vector2(6, 1)
