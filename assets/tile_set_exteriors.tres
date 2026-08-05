@@ -5012,6 +5012,16 @@ texture = ExtResource("22_l6tng")
 6:2/0 = 0
 6:3/0 = 0
 6:4/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+5:6/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+6:9/0 = 0
+6:10/0 = 0
+5:10/0 = 0
+5:9/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="src_5"]
 texture = ExtResource("22_l6tng")

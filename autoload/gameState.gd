@@ -38,8 +38,6 @@ var is_changing_scene := false
 var is_battling := false
 
 
-## Read by Level._ready() on the way in, and set by whichever LevelExit was
-## walked into. Empty on boot, so the first level uses its own default_spawn.
 func change_scene(scene: String, spawn: StringName = &"") -> void:
 	if is_changing_scene or is_battling:
 		return
@@ -58,7 +56,7 @@ func start_chatting(dialog: String) -> void:
 		return
 	is_chatting = true;
 	chat_started.emit(dialog)
-	
+
 func stop_chatting() -> void:
 	if not is_chatting:
 		return
